@@ -17,8 +17,8 @@ const storyCards = [
 ];
 
 const facts = [
-  { label: "Founded", value: "2002" },
-  { label: "Experience Since", value: "2003" },
+  { label: "Founded", value: "2026" },
+  { label: "Experience Since", value: "2016" },
   { label: "Location", value: companyContact.cityState },
   { label: "Partner", value: "ABB Authorized Channel Partner" },
   { label: "Exports", value: "5+ Export Markets" },
@@ -58,7 +58,8 @@ export default function AboutSection() {
             Electrical and Instrumentation Engineering from Faridabad
           </h2>
           <p className="text-[#555] max-w-3xl mx-auto text-base leading-relaxed">
-            Volto Control LLP is a premier Electrical and Instrumentation Engineering company headquartered in Faridabad, Haryana. Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
+            Volto Control LLP was founded in 2026. Our founder has been working in electrical engineering since 2016.
+            Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
           </p>
         </div>
 
@@ -92,11 +93,11 @@ export default function AboutSection() {
                 Volto Control LLP
               </h3>
               <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
-                Volto Control LLP is a premier Electrical and Instrumentation Engineering company headquartered in Faridabad, Haryana. Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
+                Volto Control LLP was founded in 2026 and is headquartered in Faridabad, Haryana. Our founder has been working in electrical engineering since 2016, and together with our associate group companies we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
               </p>
 
               <div className="flex flex-wrap gap-3">
-                {["Faridabad", "2002", "2003", "ABB", "Automation", "EPC"].map((tag) => (
+                {["Faridabad", "2026", "2016", "ABB", "Automation", "EPC"].map((tag) => (
                   <span key={tag} className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full">
                     {tag}
                   </span>
@@ -108,7 +109,7 @@ export default function AboutSection() {
           <div className="reveal-right space-y-5">
             <blockquote className="cyan-border-left mb-2">
               <p className="text-lg italic text-[#333] leading-relaxed">
-                "We don't just manufacture panels — we engineer reliability. Every project we undertake is backed by two decades of precision, passion, and industrial expertise."
+                "We don't just manufacture panels — we engineer reliability. Every project we undertake is backed by founder experience since 2016, precision, passion, and industrial expertise."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
                 - Mr. Vidya Bhushan, Founder, Volto Control LLP

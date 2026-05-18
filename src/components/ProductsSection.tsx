@@ -144,8 +144,8 @@ export default function ProductsSection() {
                 <div className="text-xs text-[#5E7088] tracking-wide">Founded</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2003</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Experience Since</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2016</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Founder Started Working</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
                 <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">ABB</div>

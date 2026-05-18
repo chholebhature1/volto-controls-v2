@@ -29,7 +29,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-4">
-              Powering Industry. Delivering Reliability. — Electrical panel manufacturing, generator solutions, and turnkey execution since 2002.
+              Powering Industry. Delivering Reliability. — Founded in 2026, with founder experience since 2016, delivering electrical panel manufacturing, generator solutions, and turnkey execution.
             </p>
             <div className="flex items-center gap-2 text-xs text-white/30">
               <div className="px-2 py-1 border border-white/10 rounded text-[10px] font-mono-stats text-[#00BCD4]">ISO 9001:2015</div>

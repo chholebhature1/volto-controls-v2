@@ -20,9 +20,6 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection({ showContent = true, onVideoReady }: HeroSectionProps) {
-  const [count20, setCount20] = useState(0);
-  const [count500, setCount500] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const [shouldUseVideo, setShouldUseVideo] = useState(true);
@@ -77,29 +74,6 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
       setVideoFailed(true);
       notifyVideoReady();
     }
-  }, []);
-
-  useEffect(() => {
-    if (hasAnimated) return;
-    setHasAnimated(true);
-    let start20 = 0;
-    const timer20 = setInterval(() => {
-      start20 += 1;
-      setCount20(start20);
-      if (start20 >= 20) clearInterval(timer20);
-    }, 60);
-
-    let start500 = 0;
-    const timer500 = setInterval(() => {
-      start500 += 10;
-      setCount500(start500);
-      if (start500 >= 500) clearInterval(timer500);
-    }, 20);
-
-    return () => {
-      clearInterval(timer20);
-      clearInterval(timer500);
-    };
   }, []);
 
   useEffect(() => {
@@ -240,14 +214,14 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                  <p className="mt-6 text-base sm:text-lg text-[#41566F]">
                    Electrical panels, instrumentation, automation, EPC contracting, and ABB UPS solutions.
                    <br />
-                   <span className="inline-block">Trusted across India and internationally since 2003.</span>
+                   <span className="inline-block">Volto Control LLP was founded in 2026. The founder has been working in electrical engineering since 2016.</span>
                  </p>
               </div>
             </div>
 
             <p className="text-lg sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl">
               Electrical Turnkey Solutions · Generator &amp; DG Panels · Industrial Instrumentation.
-              Trusted by Fortune 500 brands for 20+ years.
+              Built on founder experience since 2016.
             </p>
 
             {/* CTAs */}
@@ -273,7 +247,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { num: `${count20}+`, label: "Years Since 2003" },
+                { num: "2016", label: "Founder Started Working" },
                 { num: "2026", label: "Founded" },
                 { num: "5", label: "Core Industries" },
               ].map((stat) => (

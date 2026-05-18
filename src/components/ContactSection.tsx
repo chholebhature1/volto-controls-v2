@@ -79,7 +79,7 @@ export default function ContactSection() {
 
             <p className="text-white/50 text-sm leading-relaxed">
               India's trusted partner for electrical panel manufacturing, generator control, and turnkey electrical solutions — 
-              serving 20+ years across dairy, pharma, sugar, textile, and more.
+              serving industrial clients across dairy, pharma, sugar, textile, and more.
             </p>
 
             {/* Contact details */}
