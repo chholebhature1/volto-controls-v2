@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import HeroVisual from "./HeroVisual";
+import IndustriesCarousel from "./IndustriesCarousel";
 
 const processStages = ["Generator Selection", "Panel Design", "Fabrication", "Wiring & Programming", "Installation & Testing"];
 
@@ -221,7 +221,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm">
                <div className="w-2 h-2 rounded-full bg-[#1565C0] animate-pulse" />
                <span className="text-xs font-semibold text-[#1565C0] tracking-[0.15em] uppercase">
-                 Power Generation Experts
+                 Electrical &amp; Engineering Consultancy
                </span>
              </div>
 
@@ -231,16 +231,16 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
                  <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
-                   Volto
+                   VOLTO
                  </h1>
                  <p className="mt-4 text-base sm:text-lg lg:text-xl font-semibold tracking-[0.46em] uppercase text-[#1565C0]">
-                   Power LLP
+                   CONTROL LLP
                  </p>
                  <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
                  <p className="mt-6 text-base sm:text-lg text-[#41566F]">
-                   India's trusted partner for electric generator systems
+                   Electrical panels, instrumentation, automation, EPC contracting, and ABB UPS solutions.
                    <br />
-                   <span className="inline-block">and complete turnkey power solutions.</span>
+                   <span className="inline-block">Trusted across India and internationally since 2003.</span>
                  </p>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                 className="group px-8 py-3.5 rounded-full bg-[linear-gradient(100deg,#1e5fde_0%,#1f75e7_42%,#00aee8_100%)] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_16px_34px_rgba(30,95,222,0.45)] hover:scale-[1.03]"
                 data-testid="hero-explore-btn"
               >
-                Explore Products
+                Explore Services
                 <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
               <button
@@ -265,7 +265,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                 className="group px-8 py-3.5 rounded-full bg-white border border-[#C7DFF6] backdrop-blur-md shadow-[0_10px_26px_rgba(12,48,88,0.12)] hover:border-[#6CA9DF] text-[#123155] font-semibold text-sm transition-all duration-300 hover:bg-[#F7FBFF]"
                 data-testid="hero-quote-btn"
               >
-                Get a Quote
+                Contact Us
                 <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
             </div>
@@ -273,9 +273,9 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { num: `${count20}+`, label: "Years" },
-                { num: `${count500}+`, label: "Projects" },
-                { num: "5+", label: "Countries" },
+                { num: `${count20}+`, label: "Years Since 2003" },
+                { num: "2026", label: "Founded" },
+                { num: "5", label: "Core Industries" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl font-bold text-[#0A1F3B] font-mono-stats">{stat.num}</div>
@@ -285,55 +285,9 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             </div>
           </div>
 
-          {/* Right - Industrial System Visual + Electrical Panels */}
+          {/* Right - Industry carousel */}
           <div className="relative w-full max-w-[32rem] mx-auto hidden lg:flex flex-col gap-5 animate-fade-in-right mt-6 lg:mt-0">
-            <HeroVisual operationsState={operationsState} liveTimeLabel={liveTimeLabel} completionScore={completionScore} primaryActivity={primaryActivity} />
-
-            {/* Electrical Panels Card */}
-            <div className="relative w-full rounded-[24px] border border-[#CFE2F8] bg-white/95 p-5 backdrop-blur-xl shadow-[0_20px_50px_rgba(22,72,128,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(22,72,128,0.12)]">
-              <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.7)_0%,transparent_100%)] rounded-[24px] pointer-events-none" />
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[linear-gradient(120deg,#f0f6ff,#e1eefd)] text-[#1565C0] shadow-sm">
-                    <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                  </div>
-                  <h3 className="text-[14px] font-extrabold uppercase tracking-[0.18em] text-[#0A2540]">Electrical Panels</h3>
-                </div>
-                <div className="space-y-2.5 text-[13px] text-[#41566F] font-medium leading-relaxed">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F6FF] text-[#1565C0] text-[10px] font-bold">1</span>
-                    <span>DG Panel Systems</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F6FF] text-[#1565C0] text-[10px] font-bold">2</span>
-                    <span>ABB UPS <span className="text-[#647C9E] font-normal text-xs ml-0.5">(Uninterruptible Power)</span></span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F6FF] text-[#1565C0] text-[10px] font-bold">3</span>
-                    <span>ABB VCB <span className="text-[#647C9E] font-normal text-xs ml-0.5">(Vacuum Circuit Breaker)</span></span>
-                  </div>
-                  <div className="pt-2 mt-1 shrink-0 border-t border-[#E5F0FF]/80">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F6FF] text-[#1565C0] text-[10px] font-bold">4</span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#647C9E]">Channel Partners</span>
-                    </div>
-                    <div className="pl-8 flex items-center gap-3">
-                      <img src={abbLogoSrc} alt="ABB" className="h-9 w-auto rounded-lg border border-[#D8E6F5] bg-white px-2 py-1 shadow-sm" loading="lazy" />
-                      <img src={exideLogoSrc} alt="Exide" className="h-9 w-auto rounded-lg border border-[#D8E6F5] bg-white px-2 py-1 shadow-sm" loading="lazy" />
-                    </div>
-                  </div>
-                  <div className="pt-2 mt-1 shrink-0 border-t border-[#E5F0FF]/80">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F0F6FF] text-[#1565C0] text-[10px] font-bold">5</span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#647C9E]">Cables</span>
-                    </div>
-                    <div className="pl-8">
-                      <img src={keiLogoSrc} alt="KEI Cables" className="h-10 w-auto rounded-lg border border-[#D8E6F5] bg-white px-2 py-1 shadow-sm" loading="lazy" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <IndustriesCarousel />
           </div>
         </div>
       </div>
