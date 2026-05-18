@@ -8,8 +8,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
-
-import ClientsSection from "@/components/ClientsSection";
 import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
 import ContactSection from "@/components/ContactSection";
@@ -92,12 +90,10 @@ function Home() {
 
         {isMainContentVisible ? (
           <>
-            <ClientsSection />
+            <AboutSection />
             <ProductsSection />
             <QualitySection />
-
             <ExportsSection />
-            <AboutSection />
             <ContactSection />
           </>
         ) : (

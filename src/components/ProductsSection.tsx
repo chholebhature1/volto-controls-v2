@@ -124,32 +124,32 @@ export default function ProductsSection() {
           <div className="reveal-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#CFE0F8] bg-white/90 px-4 py-1.5 mb-5">
               <div className="w-1.5 h-1.5 rounded-full bg-[#1565C0]" />
-              <span className="text-xs font-semibold text-[#1565C0] tracking-[0.14em] uppercase">OUR PRODUCTS</span>
+              <span className="text-xs font-semibold text-[#1565C0] tracking-[0.14em] uppercase">Products &amp; Product Range</span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.03em] text-[#0A1628] leading-tight mb-5">
-              OUR PRODUCTS
+              Electrical Panels, Instrumentation, Automation, and EPC
             </h2>
 
             <p className="text-[#4E5F74] text-lg leading-relaxed max-w-3xl">
-              Variety of custom-built LT Panel Boards are being manufactured for use in large/medium/small industry, power plants, utilities, infrastructure projects, commercial buildings, hospitals, hotels, etc.
+              From centralized LT panel packs to custom automation systems, we deliver engineered solutions built for reliability, operational precision, and long-term service.
             </p>
           </div>
 
           <aside className="reveal-right rounded-2xl border border-[#DCE5F2] bg-white/90 backdrop-blur-sm p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192] mb-4">Product Range</div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192] mb-4">Model Directory</div>
             <div className="space-y-3">
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">33</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Custom panel categories listed</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2026</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Founded</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">LT</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Low-tension panel focus</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2003</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Experience Since</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">Custom</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Built to project requirement</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">ABB</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Authorized Channel Partner</div>
               </div>
             </div>
           </aside>

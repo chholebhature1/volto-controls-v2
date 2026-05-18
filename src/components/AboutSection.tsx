@@ -1,20 +1,28 @@
 import { useEffect, useRef } from "react";
 import { companyContact } from "@/lib/company";
 
-const highlights = [
-  { icon: "📅", title: "20+ Years", desc: "Established 2002 as Pantech Controls, now Volto Control LLP" },
-  { icon: "🏅", title: "ISO 9001:2015", desc: "Internationally certified quality management system" },
-  { icon: "🔧", title: "Turnkey Solutions", desc: "End-to-end engineering from design to commissioning" },
-  { icon: "👥", title: "Expert Engineers", desc: "Highly skilled team with deep domain expertise" },
+const storyCards = [
+  {
+    title: "Electrical Panels",
+    text: "Designing, manufacturing, and supplying high-quality electrical control panels for industries across India and internationally.",
+  },
+  {
+    title: "Automation Systems",
+    text: "Industrial electricals and automation delivered with responsive engineering support through our associate group companies.",
+  },
+  {
+    title: "EPC Execution",
+    text: "End-to-end project delivery from design and engineering through installation, commissioning, servicing, and maintenance.",
+  },
 ];
 
-const milestones = [
-  { year: "2002", event: `Founded as Pantech Controls in ${companyContact.cityState}` },
-  { year: "2008", event: "Expanded into PLC/HMI control systems" },
-  { year: "2012", event: "Achieved ISO 9001 certification" },
-  { year: "2016", event: "Began exports to Nigeria, Dubai, and Bangladesh" },
-  { year: "2020", event: "Rebranded to Volto Control LLP" },
-  { year: "2024", event: "500+ projects delivered across 5+ countries" },
+const facts = [
+  { label: "Founded", value: "2002" },
+  { label: "Experience Since", value: "2003" },
+  { label: "Location", value: companyContact.cityState },
+  { label: "Partner", value: "ABB Authorized Channel Partner" },
+  { label: "Exports", value: "5+ Export Markets" },
+  { label: "Solutions", value: "Panels, Automation, EPC" },
 ];
 
 export default function AboutSection() {
@@ -26,15 +34,14 @@ export default function AboutSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el, i) => {
-              setTimeout(() => {
-                el.classList.add("visible");
-              }, i * 100);
+              setTimeout(() => el.classList.add("visible"), i * 90);
             });
           }
         });
       },
       { threshold: 0.1 }
     );
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -42,142 +49,94 @@ export default function AboutSection() {
   return (
     <section id="about" className="section-white py-24" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
         <div className="text-center mb-16 reveal">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#1565C0]" />
             <span className="text-xs font-semibold text-[#1565C0] tracking-widest uppercase">Our Story</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mb-4">
-            Engineering Excellence Since 2002
+            Electrical and Instrumentation Engineering from Faridabad
           </h2>
-          <p className="text-[#555] max-w-2xl mx-auto text-base leading-relaxed">
-            From a local electrical panel manufacturer to a trusted electrical turnkey solutions provider —
-            Volto Control LLP has grown into one of India's most trusted engineering companies.
+          <p className="text-[#555] max-w-3xl mx-auto text-base leading-relaxed">
+            Volto Control LLP is a premier Electrical and Instrumentation Engineering company headquartered in Faridabad, Haryana. Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
           </p>
         </div>
 
-        {/* Two column layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          {/* Timeline */}
-          <div className="reveal-left">
-            <div className="reveal mb-10">
-              <article className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 shadow-sm">
-                <div className="grid sm:grid-cols-[minmax(0,220px)_1fr] gap-5 items-center">
-                  <img
-                    src="/images/Founder .jpeg"
-                    alt="Mr. Vidya Bhushan, Founder of Volto Control LLP"
-                    className="w-full h-[300px] sm:h-[330px] object-cover object-center rounded-xl border border-[#E2E8F0]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div>
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
-                      Founder
-                    </div>
-                    <h4 className="text-2xl font-bold text-[#0A1628] leading-tight mb-2">Mr. Vidya Bhushan</h4>
-                    <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
-                    <p className="text-sm text-[#555] leading-relaxed">
-                      Leading Volto with a focus on reliability, precision engineering, and long-term client trust.
-                    </p>
-                  </div>
+          <div className="reveal-left space-y-6">
+            <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
+              <img
+                src="/images/Founder .jpeg"
+                alt="Mr. Vidya Bhushan, Founder of Volto Control LLP"
+                className="h-[320px] w-full object-contain object-center bg-[#F6FAFF]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="p-5 sm:p-6">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                  Founder
                 </div>
-              </article>
-            </div>
-
-            <div className="reveal mb-10 rounded-2xl border border-[#DCE8F8] bg-gradient-to-r from-[#F6FAFF] to-white p-5 sm:p-6 shadow-sm">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
-                Founder&apos;s Note
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] leading-tight mb-2">Mr. Vidya Bhushan</h3>
+                <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
+                <p className="text-sm text-[#44566C] leading-relaxed">
+                  Electrical engineering leadership focused on reliability, precision, and long-term project execution.
+                </p>
               </div>
-              <h4 className="text-lg sm:text-xl font-bold text-[#0A1628] mb-3">Founder&apos;s Note - Volto Control LLP</h4>
-              <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
-                A B.Tech graduate in Electrical Engineering, our founder began his professional journey with Larsen &amp; Toubro, gaining early exposure to large-scale industrial systems. He went on to build significant expertise at Pantech Controls, where he successfully led and delivered turnkey projects in the food and beverage sector.
-                Over the past decade, this experience has evolved into a comprehensive command of the entire project lifecycle—from design and engineering to execution and commissioning. With a strong focus on precision, reliability, and performance, he founded Volto Control LLP with a clear vision: to deliver intelligent control solutions that drive industrial excellence.
-              </p>
-            </div>
+            </article>
 
-            <h3 className="text-xl font-bold text-[#0A1628] mb-8 flex items-center gap-3">
-              <div className="w-8 h-0.5 bg-[#1565C0]" />
-              Our Journey
-            </h3>
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[#1565C0] via-[#00BCD4] to-transparent" />
-              <div className="space-y-6">
-                {milestones.map((m, i) => (
-                  <div key={m.year} className="flex gap-6 pl-12 relative reveal" style={{ transitionDelay: `${i * 80}ms` }}>
-                    <div className="absolute left-0 w-8 h-8 rounded-full bg-[#0A1628] border-2 border-[#1565C0] flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-[#00BCD4]" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-[#1565C0] font-mono-stats mb-0.5">{m.year}</div>
-                      <div className="text-sm text-[#444] leading-relaxed">{m.event}</div>
-                    </div>
-                  </div>
+            <div className="rounded-2xl border border-[#DCE8F8] bg-gradient-to-br from-[#F6FAFF] to-white p-6 sm:p-7 shadow-sm space-y-5">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0]">
+                Company Profile
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] leading-tight">
+                Volto Control LLP
+              </h3>
+              <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
+                Volto Control LLP is a premier Electrical and Instrumentation Engineering company headquartered in Faridabad, Haryana. Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {["Faridabad", "2002", "2003", "ABB", "Automation", "EPC"].map((tag) => (
+                  <span key={tag} className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full">
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Text content */}
-          <div className="reveal-right">
-            <blockquote className="cyan-border-left mb-8">
+          <div className="reveal-right space-y-5">
+            <blockquote className="cyan-border-left mb-2">
               <p className="text-lg italic text-[#333] leading-relaxed">
-                "We don't just manufacture panels — we engineer reliability. Every project we undertake
-                is backed by two decades of precision, passion, and industrial expertise."
+                "We don't just manufacture panels — we engineer reliability. Every project we undertake is backed by two decades of precision, passion, and industrial expertise."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
                 - Mr. Vidya Bhushan, Founder, Volto Control LLP
               </footer>
             </blockquote>
 
-            <p className="text-[#555] leading-relaxed mb-6">
-              Incorporated in {companyContact.cityState} - part of the NCR industrial corridor - Volto Control LLP specializes
-              in designing, manufacturing, and supplying high-quality electrical control panels and automation systems
-              for industries across India and internationally.
-            </p>
+            {storyCards.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-[#DCE8F8] bg-white p-5 sm:p-6 shadow-sm">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                  {card.title}
+                </div>
+                <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
+                  {card.text}
+                </p>
+              </article>
+            ))}
 
-            <p className="text-[#555] leading-relaxed mb-8">
-              As an authorized channel partner of ABB UPS and allied with global giants like Siemens, Schneider Electric,
-              Mitsubishi, and Danfoss, we bring world-class technology to every installation.
-            </p>
-
-            <p className="text-[#555] leading-relaxed mb-8">
-              Our diesel-powered generator solutions span 7.5 kVA to 2250 kVA for standby, emergency,
-              continuous, and prime power requirements. Supported by experienced engineers and
-              Cummins factory-trained technicians, we deliver dependable power systems for clients
-              across India and the Middle East.
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              {[companyContact.cityState, "Est. 2002", "ABB Authorized Partner", "DG Sets 7.5-2250 kVA", "5+ Export Markets"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="rounded-2xl border border-[#DCE8F8] bg-gradient-to-br from-[#F6FAFF] to-white p-5 sm:p-6 shadow-sm">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="rounded-xl border border-[#E6ECF5] bg-white px-4 py-3">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192]">{fact.label}</div>
+                    <div className="mt-1 text-sm font-semibold text-[#0A1628] leading-relaxed">{fact.value}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* 4 highlight cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlights.map((item, i) => (
-            <div
-              key={item.title}
-              className="reveal bg-white border border-[#E2E8F0] rounded-xl p-6 card-hover shadow-sm"
-              style={{ transitionDelay: `${i * 100}ms` }}
-              data-testid={`about-card-${i}`}
-            >
-              <div className="text-3xl mb-4">{item.icon}</div>
-              <h4 className="font-bold text-[#0A1628] text-lg mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>
-                {item.title}
-              </h4>
-              <p className="text-sm text-[#666] leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
