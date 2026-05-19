@@ -453,8 +453,7 @@ function IndustriesCarousel() {
             grabCursor
             centeredSlides
             slidesPerView="auto"
-            loop
-            loopAdditionalSlides={9}
+            rewind
             speed={700}
             spaceBetween={22}
             autoplay={{ delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true }}
@@ -463,7 +462,6 @@ function IndustriesCarousel() {
             modules={[Autoplay, EffectCoverflow, Pagination]}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
-              swiper.autoplay.start();
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             allowTouchMove
