@@ -17,15 +17,15 @@ type IndustryItem = {
 };
 
 const industries: IndustryItem[] = [
-  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/Solar Energy.png", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"], targetSection: "products" },
-  { id: 2, name: "Dairy Processing", tag: "Food Safety", image: "/images/industries/dairy.jpg", solutions: ["PLC Control Systems", "Temperature Instrumentation", "Hygienic Enclosures"], targetSection: "products" },
-  { id: 3, name: "Hotel & FEC", tag: "Hospitality", image: "/images/industries/fec-hotels.jpg", solutions: ["Building Management", "Power Distribution", "Emergency UPS Backup"], targetSection: "products" },
-  { id: 4, name: "Textile", tag: "Manufacturing", image: "/images/industries/textile.jpg", solutions: ["Motor Control Centres", "Variable Frequency Drives", "Power Factor Correction"], targetSection: "products" },
-  { id: 5, name: "Pharmaceuticals", tag: "Precision Automation", image: "/images/industries/pharmaceuticals.jpg", solutions: ["Clean Room Panels", "Process Instrumentation", "Validation-ready Systems"], targetSection: "quality" },
-  { id: 6, name: "Power Plants", tag: "EPC Contracting", image: "/images/industries/power-plants.jpg", solutions: ["Switchgear Panels", "EPC Contracting", "Protection Relays"], targetSection: "products" },
-  { id: 7, name: "Sugar & Refinery", tag: "Heavy Process", image: "/images/industries/sugar.jpg", solutions: ["DCS Integration", "Field Instrumentation", "Control Room Setup"], targetSection: "products" },
-  { id: 8, name: "Packaging & Paper", tag: "Line Automation", image: "/images/industries/packaging-paper.jpg", solutions: ["Line Automation", "Tension Control Panels", "Drive Systems"], targetSection: "products" },
-  { id: 9, name: "Steel & Metals", tag: "Heavy Industry", image: "/images/industries/rubber-tyre.jpg", solutions: ["High-current MCCs", "Arc Flash Protection", "PLC Systems"], targetSection: "products" },
+  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/Solar Energy.webp", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"], targetSection: "products" },
+  { id: 2, name: "Dairy Processing", tag: "Food Safety", image: "/images/industries/Dairy Processing.webp", solutions: ["PLC Control Systems", "Temperature Instrumentation", "Hygienic Enclosures"], targetSection: "products" },
+  { id: 3, name: "Hotel & FEC", tag: "Hospitality", image: "/images/industries/Hotel & FEC.webp", solutions: ["Building Management", "Power Distribution", "Emergency UPS Backup"], targetSection: "products" },
+  { id: 4, name: "Textile", tag: "Manufacturing", image: "/images/industries/Textile.webp", solutions: ["Motor Control Centres", "Variable Frequency Drives", "Power Factor Correction"], targetSection: "products" },
+  { id: 5, name: "Pharmaceuticals", tag: "Precision Automation", image: "/images/industries/Pharmaceuticals.webp", solutions: ["Clean Room Panels", "Process Instrumentation", "Validation-ready Systems"], targetSection: "quality" },
+  { id: 6, name: "Power Plants", tag: "EPC Contracting", image: "/images/industries/Power Plants.webp", solutions: ["Switchgear Panels", "EPC Contracting", "Protection Relays"], targetSection: "products" },
+  { id: 7, name: "Sugar & Refinery", tag: "Heavy Process", image: "/images/industries/Sugar & Refinery.webp", solutions: ["DCS Integration", "Field Instrumentation", "Control Room Setup"], targetSection: "products" },
+  { id: 8, name: "Packaging & Paper", tag: "Line Automation", image: "/images/industries/Packaging & Paper.webp", solutions: ["Line Automation", "Tension Control Panels", "Drive Systems"], targetSection: "products" },
+  { id: 9, name: "Steel & Metals", tag: "Heavy Industry", image: "/images/industries/steel and metal.webp", solutions: ["High-current MCCs", "Arc Flash Protection", "PLC Systems"], targetSection: "products" },
 ];
 
 const styles = `
