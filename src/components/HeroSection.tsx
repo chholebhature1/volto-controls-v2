@@ -247,7 +247,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { num: "2016", label: "Founder Started Working" },
+                { num: "2016", label: "Experience from" },
                 { num: "2026", label: "Founded" },
                 { num: "5", label: "Core Industries" },
               ].map((stat) => (

@@ -143,7 +143,7 @@ export default function ProductsSection() {
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
                 <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2016</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Founder Started Working</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Experience from</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
                 <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">UPS</div>
