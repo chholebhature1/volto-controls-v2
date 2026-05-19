@@ -210,10 +210,11 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                    CONTROL LLP
                  </p>
                  <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
-                 <p className="mt-6 text-base sm:text-lg text-[#41566F]">
-                   Electrical panels, instrumentation, automation, EPC contracting, and UPS solutions.
-                   <br />
-                   <span className="inline-block">Volto Control LLP was founded in 2026. The founder has been working in electrical engineering since 2016.</span>
+                 <p className="mt-6 text-base sm:text-lg font-semibold text-[#1565C0] tracking-wide">
+                   Electrical &amp; Engineering Consultancy
+                 </p>
+                 <p className="mt-2 text-sm sm:text-base text-[#41566F] leading-relaxed max-w-md mx-auto">
+                   Delivering end-to-end electrical solutions — from custom control panels and industrial automation to EPC contracting, instrumentation, and reliable power backup systems.
                  </p>
               </div>
             </div>
