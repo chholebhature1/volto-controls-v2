@@ -22,8 +22,6 @@ const techPartners = [
   { name: "Danfoss", color: "#E2000F", logoSrc: "/logos/partners/danfoss.svg" },
   { name: "Yaskawa", color: "#003B73", logoSrc: "/logos/partners/yaskawa.png" },
   { name: "Fuji Electric", color: "#E62234", logoSrc: "/logos/partners/fuji-electric.svg" },
-  { name: "Endress+Hauser", color: "#00A650", logoSrc: "/logos/partners/endress-hauser.png" },
-  { name: "Yokogawa", color: "#005BAC", logoSrc: "/logos/partners/yokogawa.png" },
 ];
 
 const testimonials = [

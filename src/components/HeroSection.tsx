@@ -249,7 +249,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
               {[
                 { num: "2016", label: "Experience from" },
                 { num: "2026", label: "Founded" },
-                { num: "5", label: "Core Industries" },
+                { num: "9+", label: "Industries Served" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl font-bold text-[#0A1F3B] font-mono-stats">{stat.num}</div>

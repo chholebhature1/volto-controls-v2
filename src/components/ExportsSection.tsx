@@ -27,7 +27,7 @@ const industries = [
   { image: "/images/industries/Dairy Processing.webp", name: "Dairy", desc: "Amul, Pearl Dairy & leading dairies across India" },
   { image: "/images/industries/Hotel & FEC.webp", name: "FEC / Hotels", desc: "Multiplexes, hospitality & entertainment complexes" },
   { image: "/images/industries/Packaging & Paper.webp", name: "Packaging & Paper", desc: "Packaging lines and paper mills" },
-  { image: "/images/industries/steel and metal.webp", name: "Rubber & Tyre", desc: "Precision process control for rubber manufacturing" },
+  { image: "/images/industries/rubber-tyre.jpg", name: "Rubber & Tyre", desc: "Precision process control for rubber manufacturing" },
   { image: "/images/industries/Pharmaceuticals.webp", name: "Pharmaceuticals", desc: "GMP-compliant control panels for pharma plants" },
   { image: "/images/industries/Power Plants.webp", name: "Power Plants", desc: "Utilities, captive power, and sub-station control" },
   { image: "/images/industries/Textile.webp", name: "Textile", desc: "Spinning, weaving, and processing controls" },
