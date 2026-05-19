@@ -135,9 +135,18 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(113,219,255,0.24),transparent_60%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
-                 <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
-                   VOLTO
-                 </h1>
+                 <div className="flex items-center justify-center gap-4 mb-1">
+                   <img
+                     src="/images/volto-visualmark.png"
+                     alt="Volto Visual Mark"
+                     className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
+                     loading="eager"
+                     decoding="async"
+                   />
+                   <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
+                     VOLTO
+                   </h1>
+                 </div>
                  <p className="mt-4 text-base sm:text-lg lg:text-xl font-semibold tracking-[0.46em] uppercase text-[#1565C0]">
                    CONTROL LLP
                  </p>
