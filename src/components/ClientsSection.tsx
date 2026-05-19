@@ -17,7 +17,6 @@ const clients = [
 
 const techPartners = [
   { name: "Siemens", color: "#009999", logoSrc: "/logos/partners/siemens.svg" },
-  { name: "ABB", color: "#FF0000", logoSrc: "/logos/partners/abb.svg" },
   { name: "Schneider Electric", color: "#3DCD58", logoSrc: "/logos/partners/schneider-electric.svg" },
   { name: "Mitsubishi", color: "#D0021B", logoSrc: "/logos/partners/mitsubishi.svg" },
   { name: "Danfoss", color: "#E2000F", logoSrc: "/logos/partners/danfoss.svg" },

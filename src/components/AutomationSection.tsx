@@ -80,8 +80,8 @@ const lifecycle = [
   },
 ];
 
-const vfdPartners = ["Siemens", "Schneider Electric", "Danfoss", "Delta", "Fuji Electric", "Mitsubishi", "Yaskawa", "ABB", "Allen-Bradley"];
-const processPartners = ["Yokogawa", "Endress+Hauser", "Chino", "ABB"];
+const vfdPartners = ["Siemens", "Schneider Electric", "Danfoss", "Delta", "Fuji Electric", "Mitsubishi", "Yaskawa", "Allen-Bradley"];
+const processPartners = ["Yokogawa", "Endress+Hauser", "Chino"];
 
 export default function AutomationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);

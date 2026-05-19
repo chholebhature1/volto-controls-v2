@@ -20,7 +20,7 @@ const facts = [
   { label: "Founded", value: "2026" },
   { label: "Experience Since", value: "2016" },
   { label: "Location", value: companyContact.cityState },
-  { label: "Partner", value: "ABB Authorized Channel Partner" },
+  { label: "Systems", value: "Panels, Automation, EPC" },
   { label: "Exports", value: "5+ Export Markets" },
   { label: "Solutions", value: "Panels, Automation, EPC" },
 ];
@@ -97,7 +97,7 @@ export default function AboutSection() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                {["Faridabad", "2026", "2016", "ABB", "Automation", "EPC"].map((tag) => (
+                {["Faridabad", "2026", "2016", "Automation", "EPC"].map((tag) => (
                   <span key={tag} className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full">
                     {tag}
                   </span>

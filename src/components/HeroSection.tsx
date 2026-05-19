@@ -42,7 +42,6 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   const heroVideoDesktopSrc = `${baseUrl}videos/volto-hero-desktop.mp4`;
   const heroVideoMobileSrc = `${baseUrl}videos/volto-hero-mobile.mp4`;
   const heroPosterSrc = `${baseUrl}images/hero-poster.jpg`;
-  const abbLogoSrc = `${baseUrl}images/ABB.png`;
   const exideLogoSrc = `${baseUrl}images/Exide.png`;
   const keiLogoSrc = `${baseUrl}images/Kei%20Logo.jpg`;
 
@@ -212,7 +211,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                  </p>
                  <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
                  <p className="mt-6 text-base sm:text-lg text-[#41566F]">
-                   Electrical panels, instrumentation, automation, EPC contracting, and ABB UPS solutions.
+                   Electrical panels, instrumentation, automation, EPC contracting, and UPS solutions.
                    <br />
                    <span className="inline-block">Volto Control LLP was founded in 2026. The founder has been working in electrical engineering since 2016.</span>
                  </p>

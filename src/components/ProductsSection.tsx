@@ -148,8 +148,8 @@ export default function ProductsSection() {
                 <div className="text-xs text-[#5E7088] tracking-wide">Founder Started Working</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">ABB</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Authorized Channel Partner</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">UPS</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Uninterruptible power solutions</div>
               </div>
             </div>
           </aside>
