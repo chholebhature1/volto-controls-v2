@@ -125,6 +125,17 @@ export default function AboutSection() {
                 ))}
               </div>
             </div>
+
+            <div className="rounded-2xl border border-[#DCE8F8] bg-gradient-to-br from-[#F6FAFF] to-white p-5 sm:p-6 shadow-sm">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="rounded-xl border border-[#E6ECF5] bg-white px-4 py-3">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192]">{fact.label}</div>
+                    <div className="mt-1 text-sm font-semibold text-[#0A1628] leading-relaxed">{fact.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="reveal-right space-y-5">
@@ -147,17 +158,6 @@ export default function AboutSection() {
                 </p>
               </article>
             ))}
-
-            <div className="rounded-2xl border border-[#DCE8F8] bg-gradient-to-br from-[#F6FAFF] to-white p-5 sm:p-6 shadow-sm">
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                {facts.map((fact) => (
-                  <div key={fact.label} className="rounded-xl border border-[#E6ECF5] bg-white px-4 py-3">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192]">{fact.label}</div>
-                    <div className="mt-1 text-sm font-semibold text-[#0A1628] leading-relaxed">{fact.value}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
