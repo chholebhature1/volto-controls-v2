@@ -427,7 +427,7 @@ const styles = `
 
 function IndustriesCarousel() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
   const handleExploreSolutions = useCallback((targetSection: string) => {
@@ -443,98 +443,100 @@ function IndustriesCarousel() {
   return (
     <section className="vc-industries-carousel" aria-label="Industry Expertise">
       <style>{styles}</style>
-
       <div className="vc-shell">
         <header className="vc-header">
           <div className="vc-eyebrow">Industry Expertise</div>
         </header>
-
         <div className="vc-stage">
-          <button
-            ref={prevButtonRef}
-            type="button"
-            className="vc-swiper vc-swiper-prev"
-            aria-label="Previous industry"
+          <Swiper
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            slidesPerView="auto"
+            loop
+            speed={700}
+            spaceBetween={22}
+            autoplay={{ delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            coverflowEffect={{ rotate: 0, stretch: 0, depth: 220, modifier: 1.2, slideShadows: false }}
+            pagination={{ clickable: true, el: ".vc-pagination" }}
+            navigation={{ prevEl: ".vc-swiper-prev", nextEl: ".vc-swiper-next" }}
+            modules={[Autoplay, EffectCoverflow, Navigation, Pagination]}
+            onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            className="vc-carousel"
           >
+            {industries.map((industry) => (
+              <SwiperSlide key={industry.id} className="vc-slide">
+                <article className="vc-card">
+                  <div className="vc-accent" />
+                  <div className="vc-media">
+                    <img
+                      className="vc-image"
+                      src={industry.image}
+                      alt={industry.name}
+                      loading="lazy"
+                      decoding="async"
+                      style={{ opacity: failedImages[industry.id] ? 0 : 1 }}
+                      onLoad={() => {
+                        setFailedImages((prev) => {
+                          if (!prev[industry.id]) return prev;
+                          const next = { ...prev };
+                          delete next[industry.id];
+                          return next;
+                        });
+                      }}
+                      onError={() => {
+                        setFailedImages((prev) => ({ ...prev, [industry.id]: true }));
+                      }}
+                    />
+                    {failedImages[industry.id] && (
+                      <div className="vc-fallback" aria-hidden="true">
+                        <svg viewBox="0 0 96 96">
+                          <defs>
+                            <linearGradient id={"vc-fb-" + industry.id} x1="0" y1="0" x2="1" y2="1">
+                              <stop offset="0%" stopColor="#1565C0" />
+                              <stop offset="100%" stopColor="#00ACC1" />
+                            </linearGradient>
+                          </defs>
+                          <rect x="22" y="28" width="52" height="34" rx="5" fill="none" stroke={"url(#vc-fb-" + industry.id + ")"} strokeWidth="3" />
+                          <path d="M31 39h20M31 48h16" fill="none" stroke={"url(#vc-fb-" + industry.id + ")"} strokeLinecap="round" strokeWidth="3" />
+                          <path d="M49 18 40 38h11l-5 20 18-26H53l4-14Z" fill={"url(#vc-fb-" + industry.id + ")"} />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="vc-body">
+                    <div className="vc-tag">{industry.tag}</div>
+                    <h3 className="vc-name">{industry.name}</h3>
+                    <ul className="vc-solutions">
+                      {industry.solutions.map((s) => (
+                        <li key={s}>{s}</li>
+                      ))}
+                    </ul>
+                    <button
+                      type="button"
+                      className="vc-cta"
+                      onClick={() => handleExploreSolutions(industry.targetSection)}
+                    >
+                      Explore Solutions <span aria-hidden="true">&#8594;</span>
+                    </button>
+                  </div>
+                </article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="vc-pagination" />
+          <button type="button" className="vc-swiper vc-swiper-prev" aria-label="Previous industry">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="M15.5 5.5 9 12l6.5 6.5-1.4 1.4L6.2 12l7.9-7.9 1.4 1.4Z" />
             </svg>
           </button>
-
-          <button
-            ref={nextButtonRef}
-            type="button"
-            className="vc-swiper vc-swiper-next"
-            aria-label="Next industry"
-          >
+          <button type="button" className="vc-swiper vc-swiper-next" aria-label="Next industry">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="m8.5 18.5-1.4-1.4L13.6 12 7.1 5.9l1.4-1.4L17.8 12l-9.3 6.5Z" />
             </svg>
           </button>
-
-          <div ref={carouselRef} className="swiper vc-carousel">
-            <div className="swiper-wrapper">
-              {industries.map((industry) => (
-                <div className="swiper-slide vc-slide" key={industry.id}>
-                  <article className="vc-card">
-                    <div className="vc-accent" />
-
-                    <div className="vc-media">
-                      <img
-                        className="vc-image"
-                        src={industryImageOverrides[industry.image] ?? industry.image}
-                        alt={industry.name}
-                        loading="lazy"
-                        decoding="async"
-                        style={{ opacity: failedImages[industry.id] ? 0 : 1 }}
-                        onLoad={() => {
-                          setFailedImages((prev) => {
-                            if (!prev[industry.id]) return prev;
-                            return { ...prev, [industry.id]: false };
-                          });
-                        }}
-                        onError={() => {
-                          setFailedImages((prev) => ({ ...prev, [industry.id]: true }));
-                        }}
-                      />
-                      {failedImages[industry.id] && (
-                        <div className="vc-fallback" aria-hidden="true">
-                          <svg viewBox="0 0 96 96">
-                            <defs>
-                              <linearGradient id={`vc-fallback-${industry.id}`} x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%" stopColor="#1565C0" />
-                                <stop offset="100%" stopColor="#00ACC1" />
-                              </linearGradient>
-                            </defs>
-                            <rect x="22" y="28" width="52" height="34" rx="5" fill="none" stroke={`url(#vc-fallback-${industry.id})`} strokeWidth="3" />
-                            <path d="M31 39h20M31 48h16" fill="none" stroke={`url(#vc-fallback-${industry.id})`} strokeLinecap="round" strokeWidth="3" />
-                            <path d="M49 18 40 38h11l-5 20 18-26H53l4-14Z" fill={`url(#vc-fallback-${industry.id})`} />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="vc-body">
-                      <div className="vc-tag">{industry.tag}</div>
-                      <h3 className="vc-name">{industry.name}</h3>
-
-                      <ul className="vc-solutions">
-                        {industry.solutions.map((solution) => (
-                          <li key={solution}>{solution}</li>
-                        ))}
-                      </ul>
-
-                      <button type="button" className="vc-cta" onClick={handleExploreSolutions}>
-                        Explore Solutions <span aria-hidden="true">→</span>
-                      </button>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
-
       </div>
     </section>
   );
