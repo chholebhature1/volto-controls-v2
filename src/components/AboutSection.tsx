@@ -7,8 +7,8 @@ const storyCards = [
     text: "Designing, manufacturing, and supplying high-quality electrical control panels for industries across India and internationally.",
   },
   {
-    title: "Automation Systems",
-    text: "Industrial electricals and automation delivered with responsive engineering support through our associate group companies.",
+    title: "Power Solutions",
+    text: "Reliable power distribution, UPS backup, and switchgear solutions delivered with responsive engineering support through our associate group companies.",
   },
   {
     title: "EPC Execution",
@@ -20,9 +20,9 @@ const facts = [
   { label: "Founded", value: "2026" },
   { label: "Experience Since", value: "2016" },
   { label: "Location", value: companyContact.cityState },
-  { label: "Systems", value: "Panels, Automation, EPC" },
+  { label: "Founders", value: "Bhushan Brothers" },
   { label: "Exports", value: "5+ Export Markets" },
-  { label: "Solutions", value: "Panels, Automation, EPC" },
+  { label: "Solutions", value: "Panels, Power, EPC" },
 ];
 
 export default function AboutSection() {
@@ -55,36 +55,58 @@ export default function AboutSection() {
             <span className="text-xs font-semibold text-[#1565C0] tracking-widest uppercase">Our Story</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mb-4">
-            Electrical and Instrumentation Engineering from Faridabad
+            Electrical Engineering from Faridabad
           </h2>
           <p className="text-[#555] max-w-3xl mx-auto text-base leading-relaxed">
-            Volto Control LLP was founded in 2026. Our founder has been working in electrical engineering since 2016.
-            Together with our associate group companies, we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
+            Founded in 2026 by the <strong>Bhushan Brothers</strong>, Volto Control LLP brings together a decade of electrical engineering expertise to deliver world-class panel solutions, EPC contracting, and power systems across India and internationally.
           </p>
+        </div>
+
+        {/* Founders */}
+        <div className="grid sm:grid-cols-2 gap-6 mb-10 reveal">
+          <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
+            <img
+              src="/images/Founder .jpeg"
+              alt="Mr. Vidya Bhushan, Co-Founder of Volto Control LLP"
+              className="h-[280px] w-full object-contain object-center bg-[#F6FAFF]"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="p-5">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                Co-Founder
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] leading-tight mb-1">Mr. Vidya Bhushan</h3>
+              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Co-Founder, Volto Control LLP</p>
+              <p className="text-sm text-[#44566C] leading-relaxed">
+                Electrical engineering leadership focused on reliability, precision, and long-term project execution.
+              </p>
+            </div>
+          </article>
+
+          <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
+            <img
+              src="/images/shashi-bhushan.jpeg"
+              alt="Mr. Shashi Bhushan, Co-Founder of Volto Control LLP"
+              className="h-[280px] w-full object-contain object-center bg-[#F6FAFF]"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="p-5">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                Co-Founder
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] leading-tight mb-1">Mr. Shashi Bhushan</h3>
+              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Co-Founder, Volto Control LLP</p>
+              <p className="text-sm text-[#44566C] leading-relaxed">
+                Business development and project management expertise driving Volto Control's growth across domestic and international markets.
+              </p>
+            </div>
+          </article>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           <div className="reveal-left space-y-6">
-            <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
-              <img
-                src="/images/Founder .jpeg"
-                alt="Mr. Vidya Bhushan, Founder of Volto Control LLP"
-                className="h-[320px] w-full object-contain object-center bg-[#F6FAFF]"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="p-5 sm:p-6">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
-                  Founder
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] leading-tight mb-2">Mr. Vidya Bhushan</h3>
-                <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
-                <p className="text-sm text-[#44566C] leading-relaxed">
-                  Electrical engineering leadership focused on reliability, precision, and long-term project execution.
-                </p>
-              </div>
-            </article>
-
             <div className="rounded-2xl border border-[#DCE8F8] bg-gradient-to-br from-[#F6FAFF] to-white p-6 sm:p-7 shadow-sm space-y-5">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0]">
                 Company Profile
@@ -93,11 +115,10 @@ export default function AboutSection() {
                 Volto Control LLP
               </h3>
               <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
-                Volto Control LLP was founded in 2026 and is headquartered in Faridabad, Haryana. Our founder has been working in electrical engineering since 2016, and together with our associate group companies we deliver end-to-end solutions in industrial electricals and automation across India and internationally.
+                Founded in 2026 by the Bhushan Brothers and headquartered in Faridabad, Haryana. With electrical engineering expertise dating back to 2016, Volto Control delivers end-to-end panel solutions, EPC contracting, and power systems across India and internationally.
               </p>
-
               <div className="flex flex-wrap gap-3">
-                {["Faridabad", "2026", "2016", "Automation", "EPC"].map((tag) => (
+                {["Faridabad", "2026", "Since 2016", "EPC", "Panels", "Power"].map((tag) => (
                   <span key={tag} className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full">
                     {tag}
                   </span>
@@ -109,10 +130,10 @@ export default function AboutSection() {
           <div className="reveal-right space-y-5">
             <blockquote className="cyan-border-left mb-2">
               <p className="text-lg italic text-[#333] leading-relaxed">
-                "We don't just manufacture panels — we engineer reliability. Every project we undertake is backed by founder experience since 2016, precision, passion, and industrial expertise."
+                "We don't just manufacture panels — we engineer reliability. Every project we undertake is built on a decade of hands-on expertise, precision, and a commitment to long-term client partnerships."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
-                - Mr. Vidya Bhushan, Founder, Volto Control LLP
+                — Bhushan Brothers, Co-Founders, Volto Control LLP
               </footer>
             </blockquote>
 
