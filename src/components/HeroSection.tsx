@@ -119,9 +119,9 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
           showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none select-none"
         }`}
       >
-        <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-12 lg:gap-14 items-center lg:items-start">
+        <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-8 lg:gap-14 items-center lg:items-start">
           {/* Left content */}
-          <div className="animate-fade-in-left w-full flex flex-col items-center text-center lg:pt-2">
+          <div className="animate-fade-in-left w-full min-w-0 overflow-x-hidden flex flex-col items-center text-center lg:pt-2">
              {/* Badge */}
              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm">
                <div className="w-2 h-2 rounded-full bg-[#1565C0] animate-pulse" />
@@ -131,19 +131,19 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
              </div>
 
             {/* Headline */}
-            <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-7 py-10 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)] sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+            <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-4 py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(113,219,255,0.24),transparent_60%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
-                 <div className="flex items-center justify-center gap-4 mb-1">
+                 <div className="flex items-center justify-center gap-3 sm:gap-4 mb-1">
                    <img
                      src="/images/volto-visualmark.png"
                      alt="Volto Visual Mark"
-                     className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
+                     className="h-10 sm:h-16 lg:h-20 w-auto object-contain shrink-0"
                      loading="eager"
                      decoding="async"
                    />
-                   <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
+                   <h1 className="text-5xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
                      VOLTO
                    </h1>
                  </div>
@@ -160,7 +160,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
               </div>
             </div>
 
-            <p className="text-lg sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl">
+            <p className="text-sm sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl px-2">
               Electrical Turnkey Solutions · Generator &amp; DG Panels · UPS &amp; Power Backup
               · EPC Contracting
             </p>
