@@ -1,6 +1,6 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -48,7 +48,7 @@ const styles = `
   --vc-muted2: #b0bec5;
 
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   border: 1px solid rgba(203, 211, 223, 0.7);
   border-radius: 42px;
   padding: 2.45rem 1rem 84px;
@@ -103,7 +103,7 @@ const styles = `
   width: 100%;
   overflow: visible;
   padding: 0;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .vc-carousel .swiper-wrapper {
@@ -429,8 +429,6 @@ function IndustriesCarousel() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   const handleExploreSolutions = useCallback((targetSection: string) => {
     const section = document.getElementById(targetSection);
@@ -461,19 +459,13 @@ function IndustriesCarousel() {
             autoplay={{ delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true }}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 220, modifier: 1.2, slideShadows: false }}
             pagination={{ clickable: true, el: ".vc-pagination" }}
-            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-            modules={[Autoplay, EffectCoverflow, Navigation, Pagination]}
+            modules={[Autoplay, EffectCoverflow, Pagination]}
             onSwiper={(swiper) => {
               setSwiperInstance(swiper);
               swiper.autoplay.start();
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            onBeforeInit={(swiper) => {
-              if (typeof swiper.params.navigation === "object" && swiper.params.navigation) {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }
-            }}
+            allowTouchMove
             className="vc-carousel"
           >
             {industries.map((industry) => (
@@ -537,12 +529,12 @@ function IndustriesCarousel() {
             ))}
           </Swiper>
           <div className="vc-pagination" />
-          <button ref={prevRef} type="button" className="vc-swiper vc-swiper-prev" aria-label="Previous industry">
+          <button type="button" className="vc-swiper vc-swiper-prev" aria-label="Previous industry" onClick={() => swiperInstance?.slidePrev()}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="M15.5 5.5 9 12l6.5 6.5-1.4 1.4L6.2 12l7.9-7.9 1.4 1.4Z" />
             </svg>
           </button>
-          <button ref={nextRef} type="button" className="vc-swiper vc-swiper-next" aria-label="Next industry">
+          <button type="button" className="vc-swiper vc-swiper-next" aria-label="Next industry" onClick={() => swiperInstance?.slideNext()}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="m8.5 18.5-1.4-1.4L13.6 12 7.1 5.9l1.4-1.4L17.8 12l-9.3 6.5Z" />
             </svg>
