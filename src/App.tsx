@@ -11,6 +11,7 @@ import ProductsSection from "@/components/ProductsSection";
 import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
 import ContactSection from "@/components/ContactSection";
+import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
 import FloatingContactCTA from "@/components/FloatingContactCTA";
 
@@ -90,6 +91,7 @@ function Home() {
 
         {isMainContentVisible ? (
           <>
+            <ServicesSection />
             <AboutSection />
             <ProductsSection />
             <QualitySection />

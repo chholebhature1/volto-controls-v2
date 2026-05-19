@@ -8,7 +8,7 @@ const storyCards = [
   },
   {
     title: "Power Solutions",
-    text: "Reliable power distribution, UPS backup, and switchgear solutions delivered with responsive engineering support through our associate group companies.",
+    text: "Reliable power distribution, UPS backup, and switchgear solutions delivered directly by our in-house engineering team with responsive end-to-end support.",
   },
   {
     title: "EPC Execution",

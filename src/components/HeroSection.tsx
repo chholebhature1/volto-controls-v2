@@ -1,18 +1,6 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import IndustriesCarousel from "./IndustriesCarousel";
-
-const processStages = ["Generator Selection", "Panel Design", "Fabrication", "Wiring & Programming", "Installation & Testing"];
-
-const liveActivities = [
-  "AC generator selected for 500kVA prime power requirement with AVR synchronization.",
-  "Electrical control panel layout finalized with segregated power and control sections.",
-  "Busbar fabrication completed for MCC section with 800A rating and heat rise verification.",
-  "PLC wiring and termination verified for generator protection and control circuits.",
-  "Factory acceptance test passed for generator control panel with load bank simulation.",
-  "Site installation team mobilized for generator foundation and panel placement preparation.",
-];
-
-const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+import { companyContact } from "@/lib/company";
 
 type HeroSectionProps = {
   showContent?: boolean;
@@ -24,18 +12,6 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   const [videoFailed, setVideoFailed] = useState(false);
   const [shouldUseVideo, setShouldUseVideo] = useState(true);
   const hasNotifiedVideoReady = useRef(false);
-  const [operationsState, setOperationsState] = useState({
-    load: 87.3,
-    powerFactor: 0.98,
-    outputKw: 95,
-    activeStage: 0,
-    fabrication: 68,
-    plcProgramming: 54,
-    siteCommissioning: 72,
-  });
-  const [activityIndex, setActivityIndex] = useState(0);
-  const [liveClock, setLiveClock] = useState(() => new Date());
-  const [liveOutputSeries, setLiveOutputSeries] = useState<number[]>([92, 93, 95, 96, 95, 97, 98, 99, 100, 99, 101, 102]);
 
   const baseUrl = import.meta.env.BASE_URL;
   const heroVideoSrc = `${baseUrl}videos/volto-hero.mp4`;
@@ -74,50 +50,6 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
       notifyVideoReady();
     }
   }, []);
-
-  useEffect(() => {
-    const liveTimer = setInterval(() => {
-      setOperationsState((prev) => {
-        const drift = () => (Math.random() - 0.5) * 2;
-
-        return {
-          load: Number(clamp(prev.load + drift() * 1.6, 78, 94).toFixed(1)),
-          powerFactor: Number(clamp(prev.powerFactor + drift() * 0.01, 0.94, 1).toFixed(2)),
-          outputKw: Math.round(clamp(prev.outputKw + drift() * 2.8, 84, 118)),
-          activeStage: (prev.activeStage + 1) % processStages.length,
-          fabrication: Math.round(clamp(prev.fabrication + 0.9 + drift() * 1.2, 55, 98)),
-          plcProgramming: Math.round(clamp(prev.plcProgramming + 1.1 + drift() * 1.4, 45, 99)),
-          siteCommissioning: Math.round(clamp(prev.siteCommissioning + 0.8 + drift() * 1.1, 52, 97)),
-        };
-      });
-
-      setLiveOutputSeries((prev) => {
-        const last = prev[prev.length - 1] ?? 96;
-        const next = Math.round(clamp(last + (Math.random() - 0.48) * 4.5, 84, 118));
-        return [...prev.slice(1), next];
-      });
-
-      setActivityIndex((prev) => (prev + 1) % liveActivities.length);
-      setLiveClock(new Date());
-    }, 1800);
-
-    return () => clearInterval(liveTimer);
-  }, []);
-
-  const completionScore = Math.round(
-    (operationsState.fabrication + operationsState.plcProgramming + operationsState.siteCommissioning) / 3
-  );
-  const primaryActivity = liveActivities[activityIndex];
-  const liveTimeLabel = liveClock.toLocaleTimeString("en-IN", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  });
-  
-  const latestOutput = liveOutputSeries[liveOutputSeries.length - 1] ?? operationsState.outputKw;
-  const previousOutput = liveOutputSeries[liveOutputSeries.length - 2] ?? latestOutput;
-  const outputTrendUp = latestOutput >= previousOutput;
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -242,6 +174,15 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                 Contact Us
                 <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
+              <a
+                href={companyContact.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_12px_28px_rgba(37,211,102,0.4)] hover:scale-[1.03]"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
             </div>
 
             {/* Stats */}

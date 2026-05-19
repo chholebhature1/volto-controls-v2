@@ -1,39 +1,65 @@
 import { useEffect, useRef } from "react";
 
-const productRange = [
-  "Main LT switch board",
-  "Power Control Centres (PCC)",
-  "Motor Control Centres (MCC)",
-  "Intelligent Motor Control Centres",
-  "Distribution boards (all types in LT)",
-  "Change Over Panel Boards",
-  "A.M.F. Panels (for Generators)",
-  "Feeder Pillars",
-  "Automatic Power Factor Control Panels",
-  "Main lighting distribution boards",
-  "Emergency lighting distribution boards",
-  "Lighting Panels (all types)",
-  "HVAC Panels",
-  "Fire Fighting System Panels",
-  "Crane Control Panels",
-  "Welding Socket Distribution Board",
-  "GSM based Pump Control Panels",
-  "AC Drive panels",
-  "DC Drive Panels",
-  "PLC based panels",
-  "Soft Starter panels",
-  "Control & Relay Panels",
-  "L.T. Distribution Boxes (16KVA/25KVA)",
-  "AC distribution boards",
-  "DC distribution boards",
-  "Remote Tap Changing Control Panel",
-  "Junction Boxes",
-  "LT Bus Ducts (all types)",
-  "Bay Marshalling Kiosks",
-  "Communication Boxes",
-  "Power supply Units",
-  "GPRS Based Control Panels",
+const productCategories = [
+  {
+    title: "LT Panels & Switchboards",
+    color: "#1565C0",
+    items: [
+      "Main LT switch board",
+      "Power Control Centres (PCC)",
+      "Motor Control Centres (MCC)",
+      "Intelligent Motor Control Centres",
+      "Distribution boards (all types in LT)",
+      "Change Over Panel Boards",
+      "A.M.F. Panels (for Generators)",
+      "Feeder Pillars",
+      "Automatic Power Factor Control Panels",
+      "Main lighting distribution boards",
+      "Emergency lighting distribution boards",
+      "Lighting Panels (all types)",
+    ],
+  },
+  {
+    title: "Drive & Control Systems",
+    color: "#00838F",
+    items: [
+      "AC Drive panels",
+      "DC Drive Panels",
+      "PLC based panels",
+      "Soft Starter panels",
+      "Control & Relay Panels",
+      "GPRS Based Control Panels",
+    ],
+  },
+  {
+    title: "Specialty & Infrastructure",
+    color: "#2E7D32",
+    items: [
+      "HVAC Panels",
+      "Fire Fighting System Panels",
+      "Crane Control Panels",
+      "Welding Socket Distribution Board",
+      "GSM based Pump Control Panels",
+    ],
+  },
+  {
+    title: "Distribution & Wiring",
+    color: "#6A1B9A",
+    items: [
+      "L.T. Distribution Boxes (16KVA/25KVA)",
+      "AC distribution boards",
+      "DC distribution boards",
+      "Remote Tap Changing Control Panel",
+      "Junction Boxes",
+      "LT Bus Ducts (all types)",
+      "Bay Marshalling Kiosks",
+      "Communication Boxes",
+      "Power supply Units",
+    ],
+  },
 ];
+
+const productRange = productCategories.flatMap((c) => c.items);
 
 const powerDistributionPortfolio = [
   "Compact Substations",
@@ -208,7 +234,7 @@ export default function ProductsSection() {
             <div className="grid sm:grid-cols-2 gap-4">
               <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
                 <img
-                  src="/images/industries/power-plants.jpg"
+                  src="/images/industries/Power Plants.webp"
                   alt="Power generation installation overview"
                   className="h-36 w-full object-cover"
                   loading="lazy"
@@ -217,7 +243,7 @@ export default function ProductsSection() {
               </article>
               <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
                 <img
-                  src="/images/industries/textile.jpg"
+                  src="/images/industries/Textile.webp"
                   alt="Industrial facility electrical deployment"
                   className="h-36 w-full object-cover"
                   loading="lazy"
@@ -248,8 +274,17 @@ export default function ProductsSection() {
           </ul>
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {productRange.map((product, i) => {
+        {productCategories.map((cat) => (
+          <div key={cat.title} className="mb-12">
+            <div className="flex items-center gap-3 mb-5 reveal">
+              <div className="w-1 h-6 rounded-full" style={{ backgroundColor: cat.color }} />
+              <h3 className="text-lg font-bold text-[#0A1628] tracking-tight">{cat.title}</h3>
+              <div className="flex-1 h-px bg-[#E2EAF4]" />
+              <span className="text-xs font-semibold text-[#7A8CA6]">{cat.items.length} products</span>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {cat.items.map((product, i) => {
+            const catLabel = cat.title.split(" ")[0].toUpperCase();
             const productImage = productImages[product];
 
             return (
@@ -259,7 +294,7 @@ export default function ProductsSection() {
                   productImage ? "" : "p-6"
                 }`}
                 style={{ transitionDelay: `${i * 45}ms` }}
-                data-testid={`product-card-${i}`}
+                data-testid={`product-card-${product}`}
               >
                 {productImage && (
                   <img
@@ -280,8 +315,8 @@ export default function ProductsSection() {
                     <span className="inline-flex items-center rounded-full bg-[#0A1628] px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] text-white font-mono-stats">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="inline-flex items-center rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0]">
-                      LT PANEL
+                    <span className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em]" style={{ borderColor: cat.color + "44", backgroundColor: cat.color + "11", color: cat.color }}>
+                      {catLabel}
                     </span>
                   </div>
 
@@ -295,7 +330,9 @@ export default function ProductsSection() {
               </article>
             );
           })}
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
