@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -426,7 +426,7 @@ const styles = `
 `;
 
 function IndustriesCarousel() {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
@@ -462,7 +462,7 @@ function IndustriesCarousel() {
             pagination={{ clickable: true, el: ".vc-pagination" }}
             modules={[Autoplay, EffectCoverflow, Pagination]}
             onSwiper={(swiper) => {
-              setSwiperInstance(swiper);
+              swiperRef.current = swiper;
               swiper.autoplay.start();
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -530,12 +530,12 @@ function IndustriesCarousel() {
             ))}
           </Swiper>
           <div className="vc-pagination" />
-          <button type="button" className="vc-swiper vc-swiper-prev" aria-label="Previous industry" onClick={() => swiperInstance?.slidePrev()}>
+          <button type="button" className="vc-swiper vc-swiper-prev" aria-label="Previous industry" onClick={() => swiperRef.current?.slidePrev()}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="M15.5 5.5 9 12l6.5 6.5-1.4 1.4L6.2 12l7.9-7.9 1.4 1.4Z" />
             </svg>
           </button>
-          <button type="button" className="vc-swiper vc-swiper-next" aria-label="Next industry" onClick={() => swiperInstance?.slideNext()}>
+          <button type="button" className="vc-swiper vc-swiper-next" aria-label="Next industry" onClick={() => swiperRef.current?.slideNext()}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="m8.5 18.5-1.4-1.4L13.6 12 7.1 5.9l1.4-1.4L17.8 12l-9.3 6.5Z" />
             </svg>
