@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useState, useCallback } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 type IndustryItem = {
   id: number;
@@ -6,120 +13,20 @@ type IndustryItem = {
   tag: string;
   image: string;
   solutions: string[];
+  targetSection: string;
 };
 
 const industries: IndustryItem[] = [
-  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/solar.jpg", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"] },
-  { id: 2, name: "Dairy Processing", tag: "Food Safety", image: "/images/industries/dairy.jpg", solutions: ["PLC Control Systems", "Temperature Instrumentation", "Hygienic Enclosures"] },
-  { id: 3, name: "Hotel & FEC", tag: "Hospitality", image: "/images/industries/hotel.jpg", solutions: ["Building Management", "Power Distribution", "Emergency UPS Backup"] },
-  { id: 4, name: "Textile", tag: "Manufacturing", image: "/images/industries/textile.jpg", solutions: ["Motor Control Centres", "Variable Frequency Drives", "Power Factor Correction"] },
-  { id: 5, name: "Food & Beverage", tag: "Process Control", image: "/images/industries/food-beverage.jpg", solutions: ["Conveyor Control Panels", "Batching Automation", "HACCP Wiring"] },
-  { id: 6, name: "Pharmaceuticals", tag: "Precision Automation", image: "/images/industries/pharma.jpg", solutions: ["Clean Room Panels", "Process Instrumentation", "Validation-ready Systems"] },
-  { id: 7, name: "Power Plants", tag: "EPC Contracting", image: "/images/industries/power-plant.jpg", solutions: ["Switchgear Panels", "EPC Contracting", "Protection Relays"] },
-  { id: 8, name: "Sugar & Refinery", tag: "Heavy Process", image: "/images/industries/sugar.jpg", solutions: ["DCS Integration", "Field Instrumentation", "Control Room Setup"] },
-  { id: 9, name: "Packaging & Paper", tag: "Line Automation", image: "/images/industries/packaging.jpg", solutions: ["Line Automation", "Tension Control Panels", "Drive Systems"] },
-  { id: 10, name: "Steel & Metals", tag: "Heavy Industry", image: "/images/industries/steel.jpg", solutions: ["High-current MCCs", "Arc Flash Protection", "PLC Systems"] },
-  { id: 11, name: "Water & Sewerage", tag: "Infrastructure", image: "/images/industries/water.jpg", solutions: ["Pump Control Panels", "SCADA Systems", "Remote Monitoring"] },
-  { id: 12, name: "Drone & Defence", tag: "Advanced Tech", image: "/images/industries/drone.jpg", solutions: ["Ground Station Power", "Precision Control Panels", "Embedded Instrumentation"] },
+  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/power-plants.jpg", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"], targetSection: "products" },
+  { id: 2, name: "Dairy Processing", tag: "Food Safety", image: "/images/industries/dairy.jpg", solutions: ["PLC Control Systems", "Temperature Instrumentation", "Hygienic Enclosures"], targetSection: "products" },
+  { id: 3, name: "Hotel & FEC", tag: "Hospitality", image: "/images/industries/fec-hotels.jpg", solutions: ["Building Management", "Power Distribution", "Emergency UPS Backup"], targetSection: "products" },
+  { id: 4, name: "Textile", tag: "Manufacturing", image: "/images/industries/textile.jpg", solutions: ["Motor Control Centres", "Variable Frequency Drives", "Power Factor Correction"], targetSection: "products" },
+  { id: 5, name: "Pharmaceuticals", tag: "Precision Automation", image: "/images/industries/pharmaceuticals.jpg", solutions: ["Clean Room Panels", "Process Instrumentation", "Validation-ready Systems"], targetSection: "quality" },
+  { id: 6, name: "Power Plants", tag: "EPC Contracting", image: "/images/industries/power-plants.jpg", solutions: ["Switchgear Panels", "EPC Contracting", "Protection Relays"], targetSection: "products" },
+  { id: 7, name: "Sugar & Refinery", tag: "Heavy Process", image: "/images/industries/sugar.jpg", solutions: ["DCS Integration", "Field Instrumentation", "Control Room Setup"], targetSection: "products" },
+  { id: 8, name: "Packaging & Paper", tag: "Line Automation", image: "/images/industries/packaging-paper.jpg", solutions: ["Line Automation", "Tension Control Panels", "Drive Systems"], targetSection: "products" },
+  { id: 9, name: "Steel & Metals", tag: "Heavy Industry", image: "/images/industries/rubber-tyre.jpg", solutions: ["High-current MCCs", "Arc Flash Protection", "PLC Systems"], targetSection: "products" },
 ];
-
-const industryImageOverrides: Record<string, string> = {
-  "/images/industries/solar.jpg": "/images/industries/power-plants.jpg",
-  "/images/industries/hotel.jpg": "/images/industries/fec-hotels.jpg",
-  "/images/industries/food-beverage.jpg": "/images/industries/dairy.jpg",
-  "/images/industries/pharma.jpg": "/images/industries/pharmaceuticals.jpg",
-  "/images/industries/power-plant.jpg": "/images/industries/power-plants.jpg",
-  "/images/industries/packaging.jpg": "/images/industries/packaging-paper.jpg",
-  "/images/industries/steel.jpg": "/images/industries/rubber-tyre.jpg",
-  "/images/industries/water.jpg": "/images/industries/power-plants.jpg",
-  "/images/industries/drone.jpg": "/images/industries/rubber-tyre.jpg",
-};
-
-const SWIPER_CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css";
-const SWIPER_JS_URL = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js";
-const SWIPER_CSS_ID = "vc-swiper-css";
-const SWIPER_JS_ID = "vc-swiper-js";
-
-let swiperAssetsPromise: Promise<void> | null = null;
-
-function loadSwiperAssets() {
-  if (typeof window === "undefined") {
-    return Promise.resolve();
-  }
-
-  const swiperWindow = window as Window & { Swiper?: any };
-
-  if (swiperWindow.Swiper && document.getElementById(SWIPER_CSS_ID) && document.getElementById(SWIPER_JS_ID)) {
-    return Promise.resolve();
-  }
-
-  if (swiperAssetsPromise) {
-    return swiperAssetsPromise;
-  }
-
-  const loadStylesheet = () =>
-    new Promise<void>((resolve, reject) => {
-      const existing = document.getElementById(SWIPER_CSS_ID) as HTMLLinkElement | null;
-
-      if (existing) {
-        if (existing.dataset.loaded === "true") {
-          resolve();
-          return;
-        }
-
-        existing.addEventListener("load", () => {
-          existing.dataset.loaded = "true";
-          resolve();
-        }, { once: true });
-        existing.addEventListener("error", () => reject(new Error("Unable to load Swiper CSS")), { once: true });
-        return;
-      }
-
-      const link = document.createElement("link");
-      link.id = SWIPER_CSS_ID;
-      link.rel = "stylesheet";
-      link.href = SWIPER_CSS_URL;
-      link.onload = () => {
-        link.dataset.loaded = "true";
-        resolve();
-      };
-      link.onerror = () => reject(new Error("Unable to load Swiper CSS"));
-      document.head.appendChild(link);
-    });
-
-  const loadScript = () =>
-    new Promise<void>((resolve, reject) => {
-      if (swiperWindow.Swiper) {
-        resolve();
-        return;
-      }
-
-      const existing = document.getElementById(SWIPER_JS_ID) as HTMLScriptElement | null;
-
-      if (existing) {
-        existing.addEventListener("load", () => resolve(), { once: true });
-        existing.addEventListener("error", () => reject(new Error("Unable to load Swiper JS")), { once: true });
-        return;
-      }
-
-      const script = document.createElement("script");
-      script.id = SWIPER_JS_ID;
-      script.src = SWIPER_JS_URL;
-      script.async = true;
-      script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Unable to load Swiper JS"));
-      document.head.appendChild(script);
-    });
-
-  swiperAssetsPromise = Promise.all([loadStylesheet(), loadScript()])
-    .then(() => undefined)
-    .catch((error) => {
-      swiperAssetsPromise = null;
-      throw error;
-    });
-
-  return swiperAssetsPromise;
-}
 
 const styles = `
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
@@ -204,12 +111,12 @@ const styles = `
 }
 
 .vc-carousel .swiper-wrapper {
-  transition-timing-function: linear !important;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
   will-change: transform;
 }
 
 .vc-carousel .swiper-slide {
-  transition-timing-function: linear !important;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }
 
 .vc-slide {
@@ -254,7 +161,7 @@ const styles = `
 
 .vc-media {
   position: relative;
-  height: 62%;
+  height: 66%;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(21, 101, 192, 0.08), rgba(0, 172, 193, 0.08));
   z-index: 1;
@@ -283,8 +190,8 @@ const styles = `
 }
 
 .vc-body {
-  height: 38%;
-  padding: 14px 16px 13px;
+  height: 34%;
+  padding: 10px 14px 10px;
   border-top: 1px solid rgba(203, 211, 223, 0.48);
   display: flex;
   flex-direction: column;
@@ -308,9 +215,9 @@ const styles = `
 }
 
 .vc-name {
-  margin: 0.7rem 0 0;
+  margin: 0.55rem 0 0;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 0.95;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -330,9 +237,9 @@ const styles = `
 
 .vc-solutions li {
   position: relative;
-  margin-top: 8px;
+  margin-top: 6px;
   padding-left: 20px;
-  font-size: 11.5px;
+  font-size: 11px;
   line-height: 1.35;
   color: rgba(13, 31, 60, 0.88);
 }
@@ -454,13 +361,24 @@ const styles = `
   transform: scale(1.05);
 }
 
-.swiper-slide-active:hover .vc-solutions {
-  max-height: 150px;
-  margin-top: 0.8rem;
+.swiper-slide-active .vc-solutions {
+  max-height: 120px;
+  margin-top: 0.6rem;
   opacity: 1;
 }
 
-.swiper-slide-active:hover .vc-cta {
+.swiper-slide-active .vc-cta {
+  color: var(--vc-teal);
+  border-color: rgba(0, 172, 193, 0.5);
+}
+
+.vc-card:focus-within .vc-solutions {
+  max-height: 120px;
+  margin-top: 0.6rem;
+  opacity: 1;
+}
+
+.vc-card:focus-within .vc-cta {
   color: var(--vc-teal);
   border-color: rgba(0, 172, 193, 0.5);
 }
@@ -508,257 +426,19 @@ const styles = `
 `;
 
 function IndustriesCarousel() {
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-  const prevButtonRef = useRef<HTMLButtonElement | null>(null);
-  const nextButtonRef = useRef<HTMLButtonElement | null>(null);
-  const paginationRef = useRef<HTMLDivElement | null>(null);
-  const swiperInstanceRef = useRef<any>(null);
-  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
-  const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
 
-  const syncActiveIndustry = (swiperInstance: any) => {
-    const realIndex = typeof swiperInstance?.realIndex === "number" ? swiperInstance.realIndex : 0;
-    setActiveIndustryIndex(realIndex);
-  };
-
-  const moveToIndustryIndex = (index: number) => {
-    const carouselElement = carouselRef.current as (HTMLDivElement & { swiper?: any }) | null;
-    const swiperInstance = carouselElement?.swiper ?? swiperInstanceRef.current;
-
-    if (!swiperInstance) {
-      return;
+  const handleExploreSolutions = useCallback((targetSection: string) => {
+    const section = document.getElementById(targetSection);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      const contactSection = document.getElementById("contact");
+      contactSection?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
-    swiperInstance.animating = false;
-    swiperInstance.allowSlideNext = true;
-    swiperInstance.allowSlidePrev = true;
-    swiperInstance.slideToLoop(index);
-  };
-
-  const moveToPreviousSlide = () => {
-    const carouselElement = carouselRef.current as (HTMLDivElement & { swiper?: any }) | null;
-    const swiperInstance = carouselElement?.swiper ?? swiperInstanceRef.current;
-
-    if (!swiperInstance) {
-      return;
-    }
-
-    swiperInstance.animating = false;
-    swiperInstance.allowSlideNext = true;
-    swiperInstance.allowSlidePrev = true;
-    swiperInstance.slidePrev();
-  };
-
-  const moveToNextSlide = () => {
-    const carouselElement = carouselRef.current as (HTMLDivElement & { swiper?: any }) | null;
-    const swiperInstance = carouselElement?.swiper ?? swiperInstanceRef.current;
-
-    if (!swiperInstance) {
-      return;
-    }
-
-    swiperInstance.animating = false;
-    swiperInstance.allowSlideNext = true;
-    swiperInstance.allowSlidePrev = true;
-    swiperInstance.slideNext();
-  };
-
-  useEffect(() => {
-    let cancelled = false;
-
-    loadSwiperAssets()
-      .then(() => {
-        if (cancelled || !carouselRef.current) {
-          return;
-        }
-
-        const swiperWindow = window as Window & { Swiper?: any };
-
-        if (!swiperWindow.Swiper) {
-          return;
-        }
-
-        if (swiperInstanceRef.current) {
-          swiperInstanceRef.current.destroy(true, true);
-        }
-
-        const swiper = new swiperWindow.Swiper(carouselRef.current, {
-          effect: "coverflow",
-          grabCursor: true,
-          centeredSlides: true,
-          slidesPerView: "auto",
-          loop: true,
-          speed: 700,
-          spaceBetween: 22,
-          autoplay: {
-            delay: 3200,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          },
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 220,
-            modifier: 1.2,
-            slideShadows: false,
-          },
-          pagination: {
-            el: paginationRef.current,
-            clickable: true,
-          },
-          observer: true,
-          observeParents: true,
-          resizeObserver: true,
-          on: {
-            init: syncActiveIndustry,
-            slideChange: syncActiveIndustry,
-            realIndexChange: syncActiveIndustry,
-          },
-        });
-
-        swiperInstanceRef.current = swiper;
-
-        if (window.matchMedia("(max-width: 768px)").matches) {
-          swiper.allowTouchMove = false;
-          swiper.params.allowTouchMove = false;
-        }
-      })
-      .catch(() => {
-        // Leave the markup visible even if the CDN is unavailable.
-      });
-
-    return () => {
-      cancelled = true;
-
-      if (swiperInstanceRef.current) {
-        swiperInstanceRef.current.destroy(true, true);
-        swiperInstanceRef.current = null;
-      }
-    };
   }, []);
-
-  useEffect(() => {
-    const prevButton = prevButtonRef.current;
-    const nextButton = nextButtonRef.current;
-
-    if (!prevButton || !nextButton) {
-      return;
-    }
-
-    const handlePrevNativeClick = (event: MouseEvent) => {
-      event.preventDefault();
-      handlePrevClick();
-    };
-
-    const handleNextNativeClick = (event: MouseEvent) => {
-      event.preventDefault();
-      handleNextClick();
-    };
-
-    prevButton.addEventListener("click", handlePrevNativeClick);
-    nextButton.addEventListener("click", handleNextNativeClick);
-
-    return () => {
-      prevButton.removeEventListener("click", handlePrevNativeClick);
-      nextButton.removeEventListener("click", handleNextNativeClick);
-    };
-  }, []);
-
-  useEffect(() => {
-    const carouselElement = carouselRef.current;
-
-    if (!carouselElement) {
-      return;
-    }
-
-    const mobileQuery = window.matchMedia("(max-width: 768px)");
-
-    if (!mobileQuery.matches) {
-      return;
-    }
-
-    const swipeThreshold = 42;
-    const swipeBias = 1.25;
-
-    const handleTouchStart = (event: TouchEvent) => {
-      if (event.touches.length !== 1) {
-        touchStartRef.current = null;
-        return;
-      }
-
-      const touch = event.touches[0];
-      touchStartRef.current = {
-        x: touch.clientX,
-        y: touch.clientY,
-        time: Date.now(),
-      };
-    };
-
-    const handleTouchEnd = (event: TouchEvent) => {
-      const start = touchStartRef.current;
-
-      if (!start) {
-        return;
-      }
-
-      const touch = event.changedTouches[0];
-      touchStartRef.current = null;
-
-      if (!touch) {
-        return;
-      }
-
-      const deltaX = touch.clientX - start.x;
-      const deltaY = touch.clientY - start.y;
-      const deltaTime = Date.now() - start.time;
-
-      if (
-        Math.abs(deltaX) < swipeThreshold ||
-        Math.abs(deltaX) < Math.abs(deltaY) * swipeBias ||
-        deltaTime > 1000
-      ) {
-        return;
-      }
-
-      if (deltaX < 0) {
-        moveToNextSlide();
-      } else {
-        moveToPreviousSlide();
-      }
-    };
-
-    const handleTouchCancel = () => {
-      touchStartRef.current = null;
-    };
-
-    carouselElement.addEventListener("touchstart", handleTouchStart, { passive: true });
-    carouselElement.addEventListener("touchend", handleTouchEnd, { passive: true });
-    carouselElement.addEventListener("touchcancel", handleTouchCancel, { passive: true });
-
-    return () => {
-      carouselElement.removeEventListener("touchstart", handleTouchStart);
-      carouselElement.removeEventListener("touchend", handleTouchEnd);
-      carouselElement.removeEventListener("touchcancel", handleTouchCancel);
-    };
-  }, []);
-
-  const handleExploreSolutions = () => {
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const handleExpertiseClick = (index: number) => {
-    moveToIndustryIndex(index);
-  };
-
-  const handlePrevClick = () => {
-    moveToPreviousSlide();
-  };
-
-  const handleNextClick = () => {
-    moveToNextSlide();
-  };
 
   return (
     <section className="vc-industries-carousel" aria-label="Industry Expertise">
