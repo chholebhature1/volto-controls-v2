@@ -26,11 +26,11 @@ const operationalHubs: OperationalHub[] = [
 const industries = [
   { image: "/images/industries/dairy.jpg", name: "Dairy", desc: "Amul, Pearl Dairy & leading dairies across India" },
   { image: "/images/industries/fec-hotels.jpg", name: "FEC / Hotels", desc: "Multiplexes, hospitality & entertainment complexes" },
-  { image: "/images/industries/packaging-paper.jpg", name: "Packaging & Paper", desc: "Automated packaging lines and paper mills" },
+  { image: "/images/industries/packaging-paper.jpg", name: "Packaging & Paper", desc: "Packaging lines and paper mills" },
   { image: "/images/industries/rubber-tyre.jpg", name: "Rubber & Tyre", desc: "Precision process control for rubber manufacturing" },
-  { image: "/images/industries/pharmaceuticals.jpg", name: "Pharmaceuticals", desc: "GMP-compliant automation for pharma plants" },
+  { image: "/images/industries/pharmaceuticals.jpg", name: "Pharmaceuticals", desc: "GMP-compliant control panels for pharma plants" },
   { image: "/images/industries/power-plants.jpg", name: "Power Plants", desc: "Utilities, captive power, and sub-station control" },
-  { image: "/images/industries/textile.jpg", name: "Textile", desc: "Spinning, weaving, and processing automation" },
+  { image: "/images/industries/textile.jpg", name: "Textile", desc: "Spinning, weaving, and processing controls" },
   { image: "/images/industries/sugar.jpg", name: "Sugar", desc: "Bajaj Hindusthan and leading sugar refineries" },
 ];
 

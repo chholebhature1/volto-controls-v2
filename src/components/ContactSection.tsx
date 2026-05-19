@@ -3,7 +3,7 @@ import { companyContact } from "@/lib/company";
 
 const queryTypes = [
   "Products & Specifications",
-  "Automation Solutions",
+  "Engineering Solutions",
   "Request a Quote",
   "Export Enquiry",
   "Technical Support",
@@ -59,7 +59,7 @@ export default function ContactSection() {
             Let's Power Your Next Project
           </h2>
           <p className="text-white/50 max-w-xl mx-auto text-base leading-relaxed">
-            Ready to discuss your electrical panel or automation requirements? 
+            Ready to discuss your electrical panel or EPC requirements? 
             Our engineering team will respond within 24 hours.
           </p>
         </div>

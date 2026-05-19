@@ -32,7 +32,6 @@ const productRange = [
   "Bay Marshalling Kiosks",
   "Communication Boxes",
   "Power supply Units",
-  "Machine Automation Panels",
   "GPRS Based Control Panels",
 ];
 
@@ -83,7 +82,6 @@ const productImages: Record<string, ProductImageConfig> = {
   "Bay Marshalling Kiosks": { src: "/images/Bay Marshalling Kiosks.jpg" },
   "Communication Boxes": { src: "/images/Communication Boxes.jpg" },
   "Power supply Units": { src: "/images/Power supply Units.jpg" },
-  "Machine Automation Panels": { src: "/images/Machine Automation Panels.jpg" },
   "GPRS Based Control Panels": { src: "/images/GPRS Based Control Panels.webp" },
 };
 
@@ -128,11 +126,11 @@ export default function ProductsSection() {
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.03em] text-[#0A1628] leading-tight mb-5">
-              Electrical Panels, Instrumentation, Automation, and EPC
+              Electrical Panels &amp; EPC Solutions
             </h2>
 
             <p className="text-[#4E5F74] text-lg leading-relaxed max-w-3xl">
-              From centralized LT panel packs to custom automation systems, we deliver engineered solutions built for reliability, operational precision, and long-term service.
+              From centralized LT panel packs to custom switchgear and EPC turnkey projects, we deliver engineered solutions built for reliability, operational precision, and long-term service.
             </p>
           </div>
 

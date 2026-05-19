@@ -214,14 +214,14 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                    Electrical &amp; Engineering Consultancy
                  </p>
                  <p className="mt-2 text-sm sm:text-base text-[#41566F] leading-relaxed max-w-md mx-auto">
-                   Delivering end-to-end electrical solutions — from custom control panels and industrial automation to EPC contracting, instrumentation, and reliable power backup systems.
+                   Delivering end-to-end electrical solutions — from custom control panels and switchgear to EPC contracting, power distribution, and reliable UPS backup systems.
                  </p>
               </div>
             </div>
 
             <p className="text-lg sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl">
-              Electrical Turnkey Solutions · Generator &amp; DG Panels · Industrial Instrumentation.
-              Built on founder experience since 2016.
+              Electrical Turnkey Solutions · Generator &amp; DG Panels · UPS &amp; Power Backup
+              · EPC Contracting
             </p>
 
             {/* CTAs */}
