@@ -67,17 +67,17 @@ export default function AboutSection() {
           <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
             <img
               src="/images/Founder .jpeg"
-              alt="Mr. Vidya Bhushan, Co-Founder of Volto Control LLP"
+              alt="Mr. Vidya Bhushan, Founder of Volto Control LLP"
               className="h-[280px] w-full object-contain object-center bg-[#F6FAFF]"
               loading="lazy"
               decoding="async"
             />
             <div className="p-5">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
-                Co-Founder
+                Founder
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] leading-tight mb-1">Mr. Vidya Bhushan</h3>
-              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Co-Founder, Volto Control LLP</p>
+              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
               <p className="text-sm text-[#44566C] leading-relaxed">
                 Electrical engineering leadership focused on reliability, precision, and long-term project execution.
               </p>
@@ -87,17 +87,17 @@ export default function AboutSection() {
           <article className="overflow-hidden rounded-2xl border border-[#DCE8F8] bg-white shadow-sm">
             <img
               src="/images/shashi-bhushan.jpeg"
-              alt="Mr. Shashi Bhushan, Co-Founder of Volto Control LLP"
+              alt="Mr. Shashi Bhushan, Founder of Volto Control LLP"
               className="h-[280px] w-full object-contain object-center bg-[#F6FAFF]"
               loading="lazy"
               decoding="async"
             />
             <div className="p-5">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
-                Co-Founder
+                Founder
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] leading-tight mb-1">Mr. Shashi Bhushan</h3>
-              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Co-Founder, Volto Control LLP</p>
+              <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
               <p className="text-sm text-[#44566C] leading-relaxed">
                 Business development and project management expertise driving Volto Control's growth across domestic and international markets.
               </p>
@@ -133,7 +133,7 @@ export default function AboutSection() {
                 "We don't just manufacture panels — we engineer reliability. Every project we undertake is built on a decade of hands-on expertise, precision, and a commitment to long-term client partnerships."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
-                — Bhushan Brothers, Co-Founders, Volto Control LLP
+                — Bhushan Brothers, Founders, Volto Control LLP
               </footer>
             </blockquote>
 
