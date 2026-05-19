@@ -209,7 +209,7 @@ export default function ExportsSection() {
                     <img
                       src={ind.image}
                       alt={ind.name}
-                      className="h-full w-full object-cover grayscale contrast-110 saturate-0 transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                     />
