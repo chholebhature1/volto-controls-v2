@@ -210,7 +210,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
           </div>
 
           {/* Right - Industry carousel */}
-          <div className="relative w-full max-w-[32rem] mx-auto hidden lg:flex flex-col gap-5 animate-fade-in-right mt-6 lg:mt-0">
+          <div className="relative w-full max-w-[32rem] mx-auto flex flex-col gap-5 animate-fade-in-right mt-6 lg:mt-0">
             <IndustriesCarousel />
           </div>
         </div>
