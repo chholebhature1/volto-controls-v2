@@ -17,7 +17,7 @@ type IndustryItem = {
 };
 
 const industries: IndustryItem[] = [
-  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/power-plants.jpg", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"], targetSection: "products" },
+  { id: 1, name: "Solar Energy", tag: "Renewable Power", image: "/images/industries/Solar Energy.png", solutions: ["Solar Farm Automation", "SCADA & Monitoring", "Grid Protection Panels"], targetSection: "products" },
   { id: 2, name: "Dairy Processing", tag: "Food Safety", image: "/images/industries/dairy.jpg", solutions: ["PLC Control Systems", "Temperature Instrumentation", "Hygienic Enclosures"], targetSection: "products" },
   { id: 3, name: "Hotel & FEC", tag: "Hospitality", image: "/images/industries/fec-hotels.jpg", solutions: ["Building Management", "Power Distribution", "Emergency UPS Backup"], targetSection: "products" },
   { id: 4, name: "Textile", tag: "Manufacturing", image: "/images/industries/textile.jpg", solutions: ["Motor Control Centres", "Variable Frequency Drives", "Power Factor Correction"], targetSection: "products" },
@@ -121,7 +121,7 @@ const styles = `
 
 .vc-slide {
   width: 300px;
-  height: 400px;
+  height: 500px;
   opacity: 0.72;
   transition: opacity 280ms ease, transform 280ms ease;
 }
@@ -161,7 +161,7 @@ const styles = `
 
 .vc-media {
   position: relative;
-  height: 66%;
+  height: 68%;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(21, 101, 192, 0.08), rgba(0, 172, 193, 0.08));
   z-index: 1;
@@ -190,7 +190,7 @@ const styles = `
 }
 
 .vc-body {
-  height: 34%;
+  height: 32%;
   padding: 10px 14px 10px;
   border-top: 1px solid rgba(203, 211, 223, 0.48);
   display: flex;
@@ -362,7 +362,7 @@ const styles = `
 }
 
 .swiper-slide-active .vc-solutions {
-  max-height: 120px;
+  max-height: 160px;
   margin-top: 0.6rem;
   opacity: 1;
 }
@@ -373,7 +373,7 @@ const styles = `
 }
 
 .vc-card:focus-within .vc-solutions {
-  max-height: 120px;
+  max-height: 160px;
   margin-top: 0.6rem;
   opacity: 1;
 }
@@ -394,7 +394,7 @@ const styles = `
 
   .vc-slide {
     width: 260px;
-    height: 360px;
+    height: 460px;
   }
 }
 
@@ -409,7 +409,7 @@ const styles = `
 
   .vc-slide {
     width: 240px;
-    height: 330px;
+    height: 420px;
   }
 
   .vc-swiper {
@@ -422,6 +422,44 @@ const styles = `
     width: 16px;
     height: 16px;
   }
+}
+
+.vc-nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+.vc-nav-tab {
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--vc-border2);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--vc-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.vc-nav-tab:hover {
+  border-color: var(--vc-teal);
+  color: var(--vc-teal);
+  background: rgba(0, 172, 193, 0.07);
+}
+
+.vc-nav-tab.vc-nav-tab--active {
+  border-color: var(--vc-blue);
+  background: rgba(21, 101, 192, 0.09);
+  color: var(--vc-blue);
+  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.12);
 }
 `;
 
@@ -538,6 +576,18 @@ function IndustriesCarousel() {
               <path fill="currentColor" d="m8.5 18.5-1.4-1.4L13.6 12 7.1 5.9l1.4-1.4L17.8 12l-9.3 6.5Z" />
             </svg>
           </button>
+        </div>
+        <div className="vc-nav-tabs">
+          {industries.map((industry, index) => (
+            <button
+              key={industry.id}
+              type="button"
+              className={`vc-nav-tab${activeIndex === index ? ' vc-nav-tab--active' : ''}`}
+              onClick={() => swiperRef.current?.slideTo(index)}
+            >
+              {industry.name}
+            </button>
+          ))}
         </div>
       </div>
     </section>
