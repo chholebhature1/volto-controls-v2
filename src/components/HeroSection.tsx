@@ -123,44 +123,44 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
           {/* Left content */}
           <div className="animate-fade-in-left w-full min-w-0 overflow-x-hidden flex flex-col items-center text-center lg:pt-2">
              {/* Badge */}
-             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm">
-               <div className="w-2 h-2 rounded-full bg-[#1565C0] animate-pulse" />
-               <span className="text-xs font-semibold text-[#1565C0] tracking-[0.15em] uppercase">
+             <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm max-w-full">
+               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#1565C0] animate-pulse shrink-0" />
+               <span className="text-[10px] xs:text-xs font-semibold text-[#1565C0] tracking-[0.05em] sm:tracking-[0.15em] uppercase truncate">
                  Electrical &amp; Engineering Consultancy
                </span>
              </div>
 
             {/* Headline */}
-            <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-4 py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)]">
+            <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-3 py-6 xs:px-4 xs:py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(113,219,255,0.24),transparent_60%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
-                 <div className="flex items-center justify-center gap-3 sm:gap-4 mb-1">
+                 <div className="flex items-center justify-center gap-2 sm:gap-4 mb-1">
                    <img
                      src="/images/volto-visualmark.png"
                      alt="Volto Visual Mark"
-                     className="h-10 sm:h-16 lg:h-20 w-auto object-contain shrink-0"
+                     className="h-8 xs:h-10 sm:h-16 lg:h-20 w-auto object-contain shrink-0"
                      loading="eager"
                      decoding="async"
                    />
-                   <h1 className="text-5xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
+                   <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
                      VOLTO
                    </h1>
                  </div>
-                 <p className="mt-4 text-base sm:text-lg lg:text-xl font-semibold tracking-[0.46em] uppercase text-[#1565C0]">
+                 <p className="mt-4 text-xs xs:text-base sm:text-lg lg:text-xl font-semibold tracking-[0.2em] xs:tracking-[0.3em] sm:tracking-[0.46em] uppercase text-[#1565C0]">
                    CONTROL LLP
                  </p>
                  <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
-                 <p className="mt-6 text-base sm:text-lg font-semibold text-[#1565C0] tracking-wide">
+                 <p className="mt-6 text-sm xs:text-base sm:text-lg font-semibold text-[#1565C0] tracking-wide">
                    Electrical &amp; Engineering Consultancy
                  </p>
-                 <p className="mt-2 text-sm sm:text-base text-[#41566F] leading-relaxed max-w-md mx-auto">
+                 <p className="mt-2 text-xs xs:text-sm sm:text-base text-[#41566F] leading-relaxed max-w-md mx-auto">
                    Delivering end-to-end electrical solutions — from custom control panels and switchgear to EPC contracting, power distribution, and reliable UPS backup systems.
                  </p>
               </div>
             </div>
 
-            <p className="text-sm sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl px-2">
+            <p className="text-xs xs:text-sm sm:text-xl text-[#4F637E] leading-relaxed mb-9 max-w-3xl px-4 text-center break-words">
               Electrical Turnkey Solutions · Generator &amp; DG Panels · UPS &amp; Power Backup
               · EPC Contracting
             </p>
