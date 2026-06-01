@@ -225,7 +225,6 @@ export default function ProductsSection() {
               <li>Diesel Generator Model with Rating</li>
               <li>Containerised DG Sets</li>
               <li>Dual Fuel Generating Sets (Diesel & Gas) </li>
-              <li>Power Box</li>
             </ul>
           </div>
         </div>
