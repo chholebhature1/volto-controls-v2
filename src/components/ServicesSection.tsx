@@ -59,7 +59,7 @@ const services = [
     title: "UPS & Power Backup",
     tag: "Reliable Power",
     desc: "Uninterruptible power supply systems, power factor correction panels, and feeder pillars ensuring zero-downtime power availability for critical operations.",
-    highlights: ["Online UPS Systems", "Power Factor Correction", "Feeder Pillars", "Bus Ducts"],
+    highlights: ["Online UPS Systems", "Power Factor Correction"],
   },
 ];
 
