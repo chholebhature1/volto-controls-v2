@@ -58,7 +58,7 @@ export default function AboutSection() {
             Electrical Engineering from Faridabad
           </h2>
           <p className="text-[#555] max-w-3xl mx-auto text-base leading-relaxed">
-            Founded in 2026 by the <strong>Bhushan Brothers</strong>, Volto Control LLP brings together a decade of electrical engineering expertise to deliver world-class panel solutions, EPC contracting, and power systems across India and internationally.
+            Founded in 2026 by the <strong>Bhushan Brothers</strong>, Volto Control LLP brings together a decade of electrical engineering expertise to deliver world-class panel solutions, EPC contracting, and power systems across India.
           </p>
         </div>
 
