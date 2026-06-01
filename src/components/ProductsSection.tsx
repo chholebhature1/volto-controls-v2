@@ -210,46 +210,23 @@ export default function ProductsSection() {
         </div>
 
         <div className="reveal mb-12 rounded-2xl border border-[#DCE5F2] bg-white/95 p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
-          <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-6 items-start">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0] uppercase mb-3">
-                Power Generation
-              </div>
-              <h3 className="text-2xl font-bold text-[#0A1628] mb-3" style={{ fontFamily: "Syne, sans-serif" }}>
-                Diesel Generator Portfolio
-              </h3>
-              <p className="text-sm text-[#4E5F74] leading-relaxed mb-4">
-                Our DG offering covers engineered power backup for industrial and infrastructure facilities,
-                with scalable configurations aligned to site load and operational continuity goals.
-              </p>
-              <ul className="space-y-2.5 text-sm text-[#2B3A4F] leading-relaxed list-disc pl-5">
-                <li>Diesel Generator Model with Rating</li>
-                <li>Containerised DG Sets</li>
-                <li>Dual Fuel Generating Sets (Diesel & Gas) </li>
-                <li>Power Box</li>
-              </ul>
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0] uppercase mb-3">
+              Power Generation
             </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
-                <img
-                  src="/images/industries/Power Plants.webp"
-                  alt="Power generation installation overview"
-                  className="h-36 w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3.5 py-2.5 text-xs font-semibold tracking-wide text-[#3A4F69]">Power Generation Installation</div>
-              </article>
-              <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
-                <img
-                  src="/images/industries/Textile.webp"
-                  alt="Industrial facility electrical deployment"
-                  className="h-36 w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3.5 py-2.5 text-xs font-semibold tracking-wide text-[#3A4F69]">Industrial Deployment Environment</div>
-              </article>
-            </div>
+            <h3 className="text-2xl font-bold text-[#0A1628] mb-3" style={{ fontFamily: "Syne, sans-serif" }}>
+              Diesel Generator Portfolio
+            </h3>
+            <p className="text-sm text-[#4E5F74] leading-relaxed mb-4">
+              Our DG offering covers engineered power backup for industrial and infrastructure facilities,
+              with scalable configurations aligned to site load and operational continuity goals.
+            </p>
+            <ul className="space-y-2.5 text-sm text-[#2B3A4F] leading-relaxed list-disc pl-5">
+              <li>Diesel Generator Model with Rating</li>
+              <li>Containerised DG Sets</li>
+              <li>Dual Fuel Generating Sets (Diesel & Gas) </li>
+              <li>Power Box</li>
+            </ul>
           </div>
         </div>
 
