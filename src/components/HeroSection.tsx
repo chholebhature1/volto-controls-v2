@@ -115,11 +115,11 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
       <div className="absolute right-0 top-2/3 z-[1] w-1/4 h-px bg-gradient-to-l from-transparent via-cyan-400/40 to-transparent" />
 
       <div
-        className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 transition-all duration-700 ${
+        className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 transition-all duration-700 ${
           showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none select-none"
         }`}
       >
-        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-8 lg:gap-14 items-center lg:items-start">
+        <div className="w-full flex flex-col lg:grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-8 lg:gap-14 items-center lg:items-start">
           {/* Left content */}
           <div className="animate-fade-in-left w-full max-w-full min-w-0 overflow-hidden flex flex-col items-center text-center px-2 lg:px-0 lg:pt-2">
              {/* Badge */}
