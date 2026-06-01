@@ -48,7 +48,10 @@ const styles = `
   --vc-muted2: #b0bec5;
 
   position: relative;
-  overflow: clip;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   border: 1px solid rgba(203, 211, 223, 0.7);
   border-radius: 42px;
   padding: 2.45rem 1rem 84px;
