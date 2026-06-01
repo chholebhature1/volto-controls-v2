@@ -57,7 +57,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   };
 
   return (
-    <section id="hero" className="relative min-h-[100svh] md:min-h-screen hero-bg overflow-hidden flex items-center">
+    <section id="hero" className="relative min-h-[100svh] md:min-h-screen hero-bg overflow-x-hidden flex items-center">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={heroPosterSrc}
@@ -119,19 +119,19 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
           showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none select-none"
         }`}
       >
-        <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-8 lg:gap-14 items-center lg:items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-8 lg:gap-14 items-center lg:items-start">
           {/* Left content */}
-          <div className="animate-fade-in-left w-full min-w-0 overflow-x-hidden flex flex-col items-center text-center lg:pt-2">
+          <div className="animate-fade-in-left w-full max-w-full min-w-0 overflow-hidden flex flex-col items-center text-center px-2 lg:px-0 lg:pt-2">
              {/* Badge */}
-             <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm max-w-full">
+             <div className="w-full max-w-[95vw] sm:max-w-fit inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm overflow-hidden">
                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#1565C0] animate-pulse shrink-0" />
-               <span className="text-[10px] xs:text-xs font-semibold text-[#1565C0] tracking-[0.05em] sm:tracking-[0.15em] uppercase truncate">
+               <span className="text-[10px] xs:text-xs font-semibold text-[#1565C0] tracking-[0.05em] sm:tracking-[0.15em] uppercase text-center whitespace-nowrap overflow-hidden text-ellipsis">
                  Electrical &amp; Engineering Consultancy
                </span>
              </div>
 
             {/* Headline */}
-            <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-3 py-6 xs:px-4 xs:py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)]">
+            <div className="relative w-full max-w-full sm:max-w-[44rem] mx-auto overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-3 py-6 xs:px-4 xs:py-8 sm:px-10 sm:py-12 lg:px-12 lg:py-14 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(113,219,255,0.24),transparent_60%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
@@ -166,10 +166,10 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 w-full px-4 sm:px-0">
               <button
                 onClick={() => scrollToSection("products")}
-                className="group px-8 py-3.5 rounded-full bg-[linear-gradient(100deg,#1e5fde_0%,#1f75e7_42%,#00aee8_100%)] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_16px_34px_rgba(30,95,222,0.45)] hover:scale-[1.03]"
+                className="group w-full sm:w-auto max-w-[280px] px-8 py-3.5 rounded-full bg-[linear-gradient(100deg,#1e5fde_0%,#1f75e7_42%,#00aee8_100%)] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_16px_34px_rgba(30,95,222,0.45)] hover:scale-[1.03] text-center"
                 data-testid="hero-explore-btn"
               >
                 Explore Services
@@ -177,7 +177,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group px-8 py-3.5 rounded-full bg-white border border-[#C7DFF6] backdrop-blur-md shadow-[0_10px_26px_rgba(12,48,88,0.12)] hover:border-[#6CA9DF] text-[#123155] font-semibold text-sm transition-all duration-300 hover:bg-[#F7FBFF]"
+                className="group w-full sm:w-auto max-w-[280px] px-8 py-3.5 rounded-full bg-white border border-[#C7DFF6] backdrop-blur-md shadow-[0_10px_26px_rgba(12,48,88,0.12)] hover:border-[#6CA9DF] text-[#123155] font-semibold text-sm transition-all duration-300 hover:bg-[#F7FBFF] text-center"
                 data-testid="hero-quote-btn"
               >
                 Contact Us
@@ -187,9 +187,9 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
                 href={companyContact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_12px_28px_rgba(37,211,102,0.4)] hover:scale-[1.03]"
+                className="group inline-flex justify-center items-center gap-2 w-full sm:w-auto max-w-[280px] px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm transition-all duration-300 hover:shadow-[0_12px_28px_rgba(37,211,102,0.4)] hover:scale-[1.03]"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 WhatsApp
               </a>
             </div>
