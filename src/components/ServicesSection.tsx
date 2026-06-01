@@ -45,7 +45,7 @@ const services = [
     title: "Generator & DG Solutions",
     tag: "Power Backup",
     desc: "Diesel generator sets from 7.5 kVA to 2250 kVA for standby, prime, and continuous duty applications — with full lifecycle support from load survey to maintenance.",
-    highlights: ["7.5 kVA – 2250 kVA", "Containerised DG Sets", "Dual Fuel Sets", "AMF Control Panels"],
+    highlights: ["7.5 kVA – 2250 kVA", "Containerised DG Sets", "Dual Fuel Sets"],
   },
   {
     id: "ups",
