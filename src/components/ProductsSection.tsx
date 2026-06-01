@@ -161,7 +161,6 @@ export default function ProductsSection() {
           </div>
 
           <aside className="reveal-right rounded-2xl border border-[#DCE5F2] bg-white/90 backdrop-blur-sm p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192] mb-4">Model Directory</div>
             <div className="space-y-3">
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
                 <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2026</div>
