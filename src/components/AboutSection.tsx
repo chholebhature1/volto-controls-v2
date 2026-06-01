@@ -115,7 +115,7 @@ export default function AboutSection() {
                 Volto Control LLP
               </h3>
               <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
-                Founded in 2026 by the Bhushan Brothers and headquartered in Faridabad, Haryana. With electrical engineering expertise dating back to 2016, Volto Control delivers end-to-end panel solutions, EPC contracting, and power systems across India and internationally.
+                Founded in 2026 by the Bhushan Brothers and headquartered in Faridabad, Haryana. With electrical engineering expertise dating back to 2016, Volto Control delivers end-to-end panel solutions, EPC contracting, and power systems across India.
               </p>
               <div className="flex flex-wrap gap-3">
                 {["Faridabad", "2026", "Since 2016", "EPC", "Panels", "Power"].map((tag) => (
@@ -141,7 +141,7 @@ export default function AboutSection() {
           <div className="reveal-right space-y-5">
             <blockquote className="cyan-border-left mb-2">
               <p className="text-lg italic text-[#333] leading-relaxed">
-                "We don't just manufacture panels — we engineer reliability. Every project we undertake is built on a decade of hands-on expertise, precision, and a commitment to long-term client partnerships."
+                "We don't just manufacture panels — we build reliability. Every project we undertake is built on a decade of hands-on expertise, precision, and a commitment to long-term client partnerships."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
                 — Bhushan Brothers, Founders, Volto Control LLP
