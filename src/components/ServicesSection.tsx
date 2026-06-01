@@ -15,7 +15,7 @@ const services = [
     title: "Custom Electrical Panels",
     tag: "Core Product",
     desc: "MCCs, PCCs, AMF panels, distribution boards, and speciality control panels — all custom-built to IS/IEC standards for industrial and commercial facilities.",
-    highlights: ["LT Switch Boards", "Motor Control Centres", "AMF & DG Panels", "APFC Panels"],
+    highlights: ["Motor Control Centres", "AMF & DG Panels", "APFC Panels"],
   },
   {
     id: "epc",
