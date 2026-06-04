@@ -17,20 +17,17 @@ const clients = [
 
 const techPartners = [
   { name: "Siemens", color: "#009999", logoSrc: "/logos/partners/siemens.svg" },
-  { name: "ABB", color: "#FF0000", logoSrc: "/logos/partners/abb.svg" },
   { name: "Schneider Electric", color: "#3DCD58", logoSrc: "/logos/partners/schneider-electric.svg" },
   { name: "Mitsubishi", color: "#D0021B", logoSrc: "/logos/partners/mitsubishi.svg" },
   { name: "Danfoss", color: "#E2000F", logoSrc: "/logos/partners/danfoss.svg" },
   { name: "Yaskawa", color: "#003B73", logoSrc: "/logos/partners/yaskawa.png" },
   { name: "Fuji Electric", color: "#E62234", logoSrc: "/logos/partners/fuji-electric.svg" },
-  { name: "Endress+Hauser", color: "#00A650", logoSrc: "/logos/partners/endress-hauser.png" },
-  { name: "Yokogawa", color: "#005BAC", logoSrc: "/logos/partners/yokogawa.png" },
 ];
 
 const testimonials = [
   { quote: "Volto Control delivered a complete MCC panel setup for our dairy plant — on time, within budget, and with impeccable quality.", author: "Plant Head", company: "Amul Processing Unit" },
   { quote: "Their control integration expertise has transformed how we monitor our bottling line. Real-time visibility we never had before.", author: "Engineering Manager", company: "Leading Beverage Brand" },
-  { quote: "ISO certified, responsive support, and panels that simply work. Volto Control is our go-to automation partner.", author: "VP Operations", company: "Pharmaceutical Manufacturer" },
+  { quote: "ISO certified, responsive support, and panels that simply work. Volto Control is our trusted electrical partner.", author: "VP Operations", company: "Pharmaceutical Manufacturer" },
 ];
 
 export default function ClientsSection() {

@@ -1,6 +1,6 @@
 const whatsappDigits = "919871596855";
 const whatsappMessage =
-  "Hi, I am interested in your electrical panel and automation solutions. Please share details.";
+  "Hi, I am interested in your electrical panel and EPC solutions. Please share details.";
 
 export const companyContact = {
   phone: "+91 98715 96855",

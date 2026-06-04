@@ -1,40 +1,65 @@
 import { useEffect, useRef } from "react";
 
-const productRange = [
-  "Main LT switch board",
-  "Power Control Centres (PCC)",
-  "Motor Control Centres (MCC)",
-  "Intelligent Motor Control Centres",
-  "Distribution boards (all types in LT)",
-  "Change Over Panel Boards",
-  "A.M.F. Panels (for Generators)",
-  "Feeder Pillars",
-  "Automatic Power Factor Control Panels",
-  "Main lighting distribution boards",
-  "Emergency lighting distribution boards",
-  "Lighting Panels (all types)",
-  "HVAC Panels",
-  "Fire Fighting System Panels",
-  "Crane Control Panels",
-  "Welding Socket Distribution Board",
-  "GSM based Pump Control Panels",
-  "AC Drive panels",
-  "DC Drive Panels",
-  "PLC based panels",
-  "Soft Starter panels",
-  "Control & Relay Panels",
-  "L.T. Distribution Boxes (16KVA/25KVA)",
-  "AC distribution boards",
-  "DC distribution boards",
-  "Remote Tap Changing Control Panel",
-  "Junction Boxes",
-  "LT Bus Ducts (all types)",
-  "Bay Marshalling Kiosks",
-  "Communication Boxes",
-  "Power supply Units",
-  "Machine Automation Panels",
-  "GPRS Based Control Panels",
+const productCategories = [
+  {
+    title: "LT Panels & Switchboards",
+    color: "#1565C0",
+    items: [
+      "Main LT switch board",
+      "Power Control Centres (PCC)",
+      "Motor Control Centres (MCC)",
+      "Intelligent Motor Control Centres",
+      "Distribution boards (all types in LT)",
+      "Change Over Panel Boards",
+      "A.M.F. Panels (for Generators)",
+      "Feeder Pillars",
+      "Automatic Power Factor Control Panels",
+      "Main lighting distribution boards",
+      "Emergency lighting distribution boards",
+      "Lighting Panels (all types)",
+    ],
+  },
+  {
+    title: "Drive & Control Systems",
+    color: "#00838F",
+    items: [
+      "AC Drive panels",
+      "DC Drive Panels",
+      "PLC based panels",
+      "Soft Starter panels",
+      "Control & Relay Panels",
+      "GPRS Based Control Panels",
+    ],
+  },
+  {
+    title: "Specialty & Infrastructure",
+    color: "#2E7D32",
+    items: [
+      "HVAC Panels",
+      "Fire Fighting System Panels",
+      "Crane Control Panels",
+      "Welding Socket Distribution Board",
+      "GSM based Pump Control Panels",
+    ],
+  },
+  {
+    title: "Distribution & Wiring",
+    color: "#6A1B9A",
+    items: [
+      "L.T. Distribution Boxes (16KVA/25KVA)",
+      "AC distribution boards",
+      "DC distribution boards",
+      "Remote Tap Changing Control Panel",
+      "Junction Boxes",
+      "LT Bus Ducts (all types)",
+      "Bay Marshalling Kiosks",
+      "Communication Boxes",
+      "Power supply Units",
+    ],
+  },
 ];
+
+const productRange = productCategories.flatMap((c) => c.items);
 
 const powerDistributionPortfolio = [
   "Compact Substations",
@@ -83,7 +108,6 @@ const productImages: Record<string, ProductImageConfig> = {
   "Bay Marshalling Kiosks": { src: "/images/Bay Marshalling Kiosks.jpg" },
   "Communication Boxes": { src: "/images/Communication Boxes.jpg" },
   "Power supply Units": { src: "/images/Power supply Units.jpg" },
-  "Machine Automation Panels": { src: "/images/Machine Automation Panels.jpg" },
   "GPRS Based Control Panels": { src: "/images/GPRS Based Control Panels.webp" },
 };
 
@@ -124,32 +148,31 @@ export default function ProductsSection() {
           <div className="reveal-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#CFE0F8] bg-white/90 px-4 py-1.5 mb-5">
               <div className="w-1.5 h-1.5 rounded-full bg-[#1565C0]" />
-              <span className="text-xs font-semibold text-[#1565C0] tracking-[0.14em] uppercase">OUR PRODUCTS</span>
+              <span className="text-xs font-semibold text-[#1565C0] tracking-[0.14em] uppercase">Products &amp; Product Range</span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.03em] text-[#0A1628] leading-tight mb-5">
-              OUR PRODUCTS
+              Electrical Panels &amp; EPC Solutions
             </h2>
 
             <p className="text-[#4E5F74] text-lg leading-relaxed max-w-3xl">
-              Variety of custom-built LT Panel Boards are being manufactured for use in large/medium/small industry, power plants, utilities, infrastructure projects, commercial buildings, hospitals, hotels, etc.
+              From centralized LT panel packs to custom switchgear and EPC turnkey projects, we deliver engineered solutions built for reliability, operational precision, and long-term service.
             </p>
           </div>
 
           <aside className="reveal-right rounded-2xl border border-[#DCE5F2] bg-white/90 backdrop-blur-sm p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5C7192] mb-4">Product Range</div>
             <div className="space-y-3">
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">33</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Custom panel categories listed</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2026</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Founded</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">LT</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Low-tension panel focus</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">2016</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Experience from</div>
               </div>
               <div className="rounded-xl border border-[#E6ECF5] bg-[#F8FBFF] px-4 py-3">
-                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">Custom</div>
-                <div className="text-xs text-[#5E7088] tracking-wide">Built to project requirement</div>
+                <div className="text-2xl font-bold text-[#0A1628] font-mono-stats">UPS</div>
+                <div className="text-xs text-[#5E7088] tracking-wide">Uninterruptible power solutions</div>
               </div>
             </div>
           </aside>
@@ -187,46 +210,22 @@ export default function ProductsSection() {
         </div>
 
         <div className="reveal mb-12 rounded-2xl border border-[#DCE5F2] bg-white/95 p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
-          <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-6 items-start">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0] uppercase mb-3">
-                Power Generation
-              </div>
-              <h3 className="text-2xl font-bold text-[#0A1628] mb-3" style={{ fontFamily: "Syne, sans-serif" }}>
-                Diesel Generator Portfolio
-              </h3>
-              <p className="text-sm text-[#4E5F74] leading-relaxed mb-4">
-                Our DG offering covers engineered power backup for industrial and infrastructure facilities,
-                with scalable configurations aligned to site load and operational continuity goals.
-              </p>
-              <ul className="space-y-2.5 text-sm text-[#2B3A4F] leading-relaxed list-disc pl-5">
-                <li>Diesel Generator Model with Rating</li>
-                <li>Containerised DG Sets</li>
-                <li>Dual Fuel Generating Sets (Diesel & Gas) </li>
-                <li>Power Box</li>
-              </ul>
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0] uppercase mb-3">
+              Power Generation
             </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
-                <img
-                  src="/images/industries/power-plants.jpg"
-                  alt="Power generation installation overview"
-                  className="h-36 w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3.5 py-2.5 text-xs font-semibold tracking-wide text-[#3A4F69]">Power Generation Installation</div>
-              </article>
-              <article className="overflow-hidden rounded-xl border border-[#DCE5F2] bg-[#F8FBFF]">
-                <img
-                  src="/images/industries/textile.jpg"
-                  alt="Industrial facility electrical deployment"
-                  className="h-36 w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3.5 py-2.5 text-xs font-semibold tracking-wide text-[#3A4F69]">Industrial Deployment Environment</div>
-              </article>
-            </div>
+            <h3 className="text-2xl font-bold text-[#0A1628] mb-3" style={{ fontFamily: "Syne, sans-serif" }}>
+              Diesel Generator Portfolio
+            </h3>
+            <p className="text-sm text-[#4E5F74] leading-relaxed mb-4">
+              Our DG offering covers engineered power backup for industrial and infrastructure facilities,
+              with scalable configurations aligned to site load and operational continuity goals.
+            </p>
+            <ul className="space-y-2.5 text-sm text-[#2B3A4F] leading-relaxed list-disc pl-5">
+              <li>Diesel Generator Model with Rating</li>
+              <li>Containerised DG Sets</li>
+              <li>Dual Fuel Generating Sets (Diesel & Gas) </li>
+            </ul>
           </div>
         </div>
 
@@ -250,8 +249,17 @@ export default function ProductsSection() {
           </ul>
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {productRange.map((product, i) => {
+        {productCategories.map((cat) => (
+          <div key={cat.title} className="mb-12">
+            <div className="flex items-center gap-3 mb-5 reveal">
+              <div className="w-1 h-6 rounded-full" style={{ backgroundColor: cat.color }} />
+              <h3 className="text-lg font-bold text-[#0A1628] tracking-tight">{cat.title}</h3>
+              <div className="flex-1 h-px bg-[#E2EAF4]" />
+              <span className="text-xs font-semibold text-[#7A8CA6]">{cat.items.length} products</span>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {cat.items.map((product, i) => {
+            const catLabel = cat.title.split(" ")[0].toUpperCase();
             const productImage = productImages[product];
 
             return (
@@ -261,7 +269,7 @@ export default function ProductsSection() {
                   productImage ? "" : "p-6"
                 }`}
                 style={{ transitionDelay: `${i * 45}ms` }}
-                data-testid={`product-card-${i}`}
+                data-testid={`product-card-${product}`}
               >
                 {productImage && (
                   <img
@@ -282,8 +290,8 @@ export default function ProductsSection() {
                     <span className="inline-flex items-center rounded-full bg-[#0A1628] px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] text-white font-mono-stats">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="inline-flex items-center rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0]">
-                      LT PANEL
+                    <span className="inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em]" style={{ borderColor: cat.color + "44", backgroundColor: cat.color + "11", color: cat.color }}>
+                      {catLabel}
                     </span>
                   </div>
 
@@ -297,7 +305,9 @@ export default function ProductsSection() {
               </article>
             );
           })}
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

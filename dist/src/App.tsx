@@ -8,11 +8,10 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
-
-import ClientsSection from "@/components/ClientsSection";
 import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
 import ContactSection from "@/components/ContactSection";
+import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
 import FloatingContactCTA from "@/components/FloatingContactCTA";
 
@@ -92,12 +91,11 @@ function Home() {
 
         {isMainContentVisible ? (
           <>
-            <ClientsSection />
+            <ServicesSection />
+            <AboutSection />
             <ProductsSection />
             <QualitySection />
-
             <ExportsSection />
-            <AboutSection />
             <ContactSection />
           </>
         ) : (

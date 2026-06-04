@@ -24,17 +24,16 @@ const operationalHubs: OperationalHub[] = [
 ];
 
 const industries = [
-  { image: "/images/industries/dairy.jpg", name: "Dairy", desc: "Amul, Pearl Dairy & leading dairies across India" },
-  { image: "/images/industries/fec-hotels.jpg", name: "FEC / Hotels", desc: "Multiplexes, hospitality & entertainment complexes" },
-  { image: "/images/industries/packaging-paper.jpg", name: "Packaging & Paper", desc: "Automated packaging lines and paper mills" },
+  { image: "/images/industries/Dairy Processing.webp", name: "Dairy", desc: "Amul, Pearl Dairy & leading dairies across India" },
+  { image: "/images/industries/Hotel & FEC.webp", name: "FEC / Hotels", desc: "Multiplexes, hospitality & entertainment complexes" },
+  { image: "/images/industries/Packaging & Paper.webp", name: "Packaging & Paper", desc: "Packaging lines and paper mills" },
   { image: "/images/industries/rubber-tyre.jpg", name: "Rubber & Tyre", desc: "Precision process control for rubber manufacturing" },
-  { image: "/images/industries/pharmaceuticals.jpg", name: "Pharmaceuticals", desc: "GMP-compliant automation for pharma plants" },
-  { image: "/images/industries/power-plants.jpg", name: "Power Plants", desc: "Utilities, captive power, and sub-station control" },
-  { image: "/images/industries/textile.jpg", name: "Textile", desc: "Spinning, weaving, and processing automation" },
-  { image: "/images/industries/sugar.jpg", name: "Sugar", desc: "Bajaj Hindusthan and leading sugar refineries" },
+  { image: "/images/industries/Pharmaceuticals.webp", name: "Pharmaceuticals", desc: "GMP-compliant control panels for pharma plants" },
+  { image: "/images/industries/Power Plants.webp", name: "Power Plants", desc: "Utilities, captive power, and sub-station control" },
+  { image: "/images/industries/Textile.webp", name: "Textile", desc: "Spinning, weaving, and processing controls" },
+  { image: "/images/industries/Sugar & Refinery.webp", name: "Sugar", desc: "Bajaj Hindusthan and leading sugar refineries" },
 ];
 
-// Use geographic coordinates to avoid manual plotting errors in map markers.
 const toMapPoint = (lat: number, lon: number) => {
   const x = ((lon + 180) / 360) * 100;
   const y = ((90 - lat) / 180) * 100;
@@ -91,7 +90,6 @@ export default function ExportsSection() {
   return (
     <section id="exports" className="py-24 bg-[#F6F5EF]" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="mb-12 reveal">
           <div className="inline-flex items-center gap-2 rounded-xl border border-[#D6DEE9] bg-[#ECF2FB] px-3 py-2 mb-4">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white border border-[#D3DEEE] text-[#2D6FE1]">
@@ -103,8 +101,7 @@ export default function ExportsSection() {
             Multi-Regional Delivery Network
           </h2>
           <p className="text-[#5A677A] max-w-3xl text-lg leading-relaxed">
-            Engineering support and active deployment infrastructure across South Asia, Middle
-            East, and Africa - enabling rapid response and localized expertise.
+            Engineering support and active deployment infrastructure across South Asia, Middle East, and Africa - enabling rapid response and localized expertise.
           </p>
         </div>
 
@@ -171,11 +168,9 @@ export default function ExportsSection() {
                   <div
                     key={hub.name}
                     className={`rounded-xl border px-4 py-3 transition-colors duration-200 ${
-                      isPrimary
-                        ? "border-[#9FC1F7] bg-[#ECF3FF]"
-                        : "border-[#E4E8EF] bg-white"
+                      isPrimary ? "border-[#9FC1F7] bg-[#ECF3FF]" : "border-[#E4E8EF] bg-white"
                     }`}
-                    data-testid={`hub-${hub.name.toLowerCase().replace(/[()\s]+/g, '-')}`}
+                    data-testid={`hub-${hub.name.toLowerCase().replace(/[()\s]+/g, "-")}`}
                   >
                     <div className="flex items-start gap-3">
                       <MapPin className={`h-4 w-4 mt-0.5 ${isPrimary ? "text-[#2D6FE1]" : "text-[#111C2D]"}`} aria-hidden="true" />
@@ -193,7 +188,6 @@ export default function ExportsSection() {
           </aside>
         </div>
 
-        {/* Industries grid */}
         <div className="reveal rounded-[28px] border border-[#d8e0ea] bg-[radial-gradient(circle_at_top,#f5f8fc_0%,#edf3f8_42%,#e4ebf4_100%)] p-5 sm:p-7 lg:p-8 shadow-[0_18px_50px_rgba(10,22,40,0.08)]">
           <div className="text-center mb-7 sm:mb-9">
             <h3 className="text-2xl sm:text-3xl font-semibold tracking-[0.28em] uppercase text-[#0A1628]">
@@ -208,14 +202,14 @@ export default function ExportsSection() {
                 key={ind.name}
                 className="reveal group"
                 style={{ transitionDelay: `${i * 60}ms` }}
-                data-testid={`industry-${ind.name.toLowerCase().replace(/[\s/&]+/g, '-')}`}
+                data-testid={`industry-${ind.name.toLowerCase().replace(/[\s/&]+/g, "-")}`}
               >
                 <div className="overflow-hidden border border-[#c7d4e4] bg-white shadow-[0_10px_24px_rgba(10,22,40,0.08)]">
                   <div className="aspect-[4/3] overflow-hidden bg-[#dfe9f4]">
                     <img
                       src={ind.image}
                       alt={ind.name}
-                      className="h-full w-full object-cover grayscale contrast-110 saturate-0 transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                     />
