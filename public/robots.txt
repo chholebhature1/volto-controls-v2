@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+# Sitemaps
+Sitemap: https://voltocontrol.com/sitemap.xml
+
+# Block access to non-content paths
+Disallow: /assets/

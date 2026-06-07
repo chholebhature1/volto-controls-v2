@@ -274,7 +274,7 @@ export default function ProductsSection() {
                 {productImage && (
                   <img
                     src={productImage.src}
-                    alt={`${product} panel image`}
+                    alt={`${product} — industrial electrical panel manufactured by Volto Control`}
                     className="w-full border-b border-[#DCE5F2] object-cover"
                     style={{
                       height: "clamp(11rem, 16vw, 12rem)",

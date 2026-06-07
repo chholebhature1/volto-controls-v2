@@ -14,7 +14,6 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   const hasNotifiedVideoReady = useRef(false);
 
   const baseUrl = import.meta.env.BASE_URL;
-  const heroVideoSrc = `${baseUrl}videos/volto-hero.mp4`;
   const heroVideoDesktopSrc = `${baseUrl}videos/volto-hero-desktop.mp4`;
   const heroVideoMobileSrc = `${baseUrl}videos/volto-hero-mobile.mp4`;
   const heroPosterSrc = `${baseUrl}images/hero-poster.jpg`;
@@ -94,8 +93,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
             }}
           >
             <source media="(max-width: 767px)" srcSet={heroVideoMobileSrc} type="video/mp4" />
-            <source media="(min-width: 768px)" srcSet={heroVideoDesktopSrc} type="video/mp4" />
-            <source src={heroVideoSrc} type="video/mp4" />
+            <source src={heroVideoDesktopSrc} type="video/mp4" />
           </video>
         )}
         <div className={`absolute inset-0 ${shouldUseVideo && videoReady && !videoFailed ? "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.92)_0%,rgba(237,246,255,0.72)_46%,rgba(228,240,253,0.5)_100%)]" : "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.95)_0%,rgba(241,248,255,0.82)_46%,rgba(232,243,255,0.68)_100%)]"}`} />

@@ -29,8 +29,6 @@ const industries: IndustryItem[] = [
 ];
 
 const styles = `
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
 .vc-industries-carousel,
 .vc-industries-carousel * {
   box-sizing: border-box;

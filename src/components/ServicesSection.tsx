@@ -63,6 +63,53 @@ const services = [
   },
 ];
 
+const extendedSolutions = [
+  {
+    id: "earthing",
+    number: "01",
+    title: "Earthing Solutions",
+    desc: "Complete grounding and lightning protection systems engineered for electrical safety, fault dissipation, and long-term site reliability.",
+    items: [
+      "Earthing Electrodes",
+      "Copper Electrodes",
+      "Lightning Arresters",
+      "Back Fill Compound",
+      "Earthing Pit Covers",
+      "FRP Earth Pit Chambers",
+    ],
+  },
+  {
+    id: "bus-duct",
+    number: "02",
+    title: "Bus Duct Systems",
+    desc: "High-performance bus duct solutions designed for safe, efficient, and scalable power distribution across industrial facilities.",
+    items: ["High Quality Bus Duct", "Aluminum Bus Duct", "Copper Bus Duct"],
+  },
+  {
+    id: "cable-tray",
+    number: "03",
+    title: "Cable Tray Systems",
+    desc: "Robust cable tray systems for organized routing, mechanical protection, and easy maintenance of electrical networks.",
+    items: [
+      "Stainless Steel Cable Trays",
+      "Mild Steel (MS) Cable Trays",
+      "Galvanized Iron (GI) Cable Trays",
+    ],
+  },
+  {
+    id: "lighting",
+    number: "04",
+    title: "Industrial Lighting Solutions",
+    desc: "End-to-end lighting design and automation solutions for factories, warehouses, and large-scale infrastructure environments.",
+    items: [
+      "Industrial Lighting Design",
+      "Warehouse Light Design",
+      "Light Automation",
+      "Stadium Light Design",
+    ],
+  },
+];
+
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -99,7 +146,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-20">
           {services.map((svc, i) => (
             <article
               key={svc.id}
@@ -124,6 +171,64 @@ export default function ServicesSection() {
               </ul>
             </article>
           ))}
+        </div>
+
+        <div className="reveal">
+          <div className="mb-9 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FBFF] border border-[#DCE8F8] mb-4">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#00BCD4]" />
+                <span className="text-xs font-semibold text-[#1565C0] tracking-widest uppercase">Extended Solutions</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-3">
+                Additional Electrical Infrastructure Solutions
+              </h3>
+              <p className="text-[#4E5F74] text-base leading-relaxed">
+                Beyond custom panels, EPC execution, DG systems, and UPS backup, Volto Control also delivers essential infrastructure products for safe distribution, cable management, grounding, and lighting.
+              </p>
+            </div>
+
+            <a
+              href="#contact"
+              className="inline-flex w-fit items-center justify-center rounded-full border border-[#1565C0]/20 bg-[#1565C0] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(21,101,192,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0D4F9C] focus:outline-none focus:ring-2 focus:ring-[#1565C0] focus:ring-offset-2"
+            >
+              Request Technical Details
+            </a>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            {extendedSolutions.map((solution, i) => (
+              <article
+                key={solution.id}
+                className="rounded-2xl border border-[#DCE8F8] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(15,23,42,0.10)]"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div>
+                    <div className="mb-3 h-1.5 w-12 rounded-full bg-gradient-to-r from-[#1565C0] to-[#00BCD4]" />
+                    <h4 className="text-xl font-bold text-[#0A1628] leading-snug">{solution.title}</h4>
+                  </div>
+                  <span className="shrink-0 rounded-full border border-[#CFE0F8] bg-[#EAF4FF] px-3 py-1 text-xs font-bold text-[#1565C0] font-mono-stats">
+                    {solution.number}
+                  </span>
+                </div>
+
+                <p className="text-sm text-[#44566C] leading-relaxed mb-5">{solution.desc}</p>
+
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {solution.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 rounded-lg border border-[#E8EEF6] bg-[#F8FBFF] px-3 py-2 text-xs font-medium leading-snug text-[#2B3A4F]"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00BCD4]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
